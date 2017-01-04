@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace OOPTeamwork.GameInterfaces
 {
-    interface IGameLogic
+    interface ILevel
     {
+        void StartLevel();
     }
 }

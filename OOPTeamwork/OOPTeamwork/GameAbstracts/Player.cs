@@ -4,39 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using OOPTeamwork.GameStructure;
+
 namespace OOPTeamwork.GameAbstracts
 {
     public abstract class Player : IPlayer
     {
-        public int Choice
+        private int playerIndex;
+
+        public int PlayerIndex
         {
             get
             {
-                throw new NotImplementedException();
+                return this.playerIndex;
             }
 
-            set
+            protected set
             {
-                throw new NotImplementedException();
+                this.playerIndex = value;
             }
         }
 
-        public char PlayerSymbol
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public void Play()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void PlayerNextMove();
+            
     }
 }

@@ -11,20 +11,20 @@
   <Class Name="OOPTeamwork.GameAbstracts.Player" Collapsed="true">
     <Position X="4" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAACAAAgAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAABIAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
       <FileName>GameAbstracts\Player.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="OOPTeamwork.Result" Collapsed="true">
-    <Position X="7.25" Y="1.75" Width="1.5" />
+    <Position X="7.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameStructure\Result.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OOPTeamwork.ScoreBoard" Collapsed="true">
-    <Position X="7.25" Y="2.5" Width="1.5" />
+    <Position X="7.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameStructure\ScoreBoard.cs</FileName>
@@ -33,7 +33,7 @@
   <Class Name="OOPTeamwork.Constants" Collapsed="true">
     <Position X="9.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIBAAAAAAAA=</HashCode>
+      <HashCode>AABAAEAAAAAAAAAAAIAAAAAAAAAAAAAAAIBAAAAAAAA=</HashCode>
       <FileName>Players\Constants.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -44,17 +44,10 @@
       <FileName>Players\EnemyLogic.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OOPTeamwork.FirstPlayer" Collapsed="true">
-    <Position X="3" Y="2.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Players\FirstPlayer.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="OOPTeamwork.Players.SecondPlayer" Collapsed="true">
     <Position X="5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Players\SecondPlayer.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -62,11 +55,11 @@
     <Position X="9.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>CustomException.cs</FileName>
+      <FileName>Exceptions\CustomException.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OOPTeamwork.StartUp" Collapsed="true">
-    <Position X="3.25" Y="4" Width="1.5" />
+    <Position X="2.25" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>StartUp.cs</FileName>
@@ -75,13 +68,12 @@
   <Class Name="OOPTeamwork.GameStructure.GameLogic" Collapsed="true">
     <Position X="7.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAgAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAgAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameStructure\GameLogic.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="OOPTeamwork.GameStructure.LevelSelection" Collapsed="true">
-    <Position X="7.25" Y="3.5" Width="1.5" />
+    <Position X="7.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameStructure\LevelSelection.cs</FileName>
@@ -89,17 +81,39 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="OOPTeamwork.GameStructure.FirstLevel" Collapsed="true">
-    <Position X="7.25" Y="4.5" Width="1.5" />
+    <Position X="1" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>IAAQAAAQAAAAAAAAAIAIAAAAAAAAAAABAAABAAAAAAA=</HashCode>
       <FileName>GameStructure\Levels\FirstLevel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OOPTeamwork.GameStructure.SecondLevel" Collapsed="true">
-    <Position X="7.25" Y="5.25" Width="1.5" />
+    <Position X="3.25" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameStructure\Levels\SecondLevel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OOPTeamwork.Players.FirstPlayer" Collapsed="true">
+    <Position X="3" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Players\FirstPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OOPTeamwork.GameAbstracts.Level" Collapsed="true">
+    <Position X="2" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameAbstracts\Level.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OOPTeamwork.GameStructure.GameEngine" Collapsed="true">
+    <Position X="2.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameStructure\GameEngine.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="OOPTeamwork.GameField" Collapsed="true">
@@ -119,22 +133,22 @@
   <Interface Name="OOPTeamwork.IPlayer" Collapsed="true">
     <Position X="11.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAACAAAgAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAABIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameInterfaces\IPlayer.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="OOPTeamwork.GameInterfaces.IGameLogic" Collapsed="true">
-    <Position X="11.5" Y="2.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>GameInterfaces\IGameLogic.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
   <Interface Name="OOPTeamwork.GameInterfaces.ILevelSelection" Collapsed="true">
-    <Position X="11.5" Y="3" Width="1.5" />
+    <Position X="11.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameInterfaces\ILevelSelection.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OOPTeamwork.GameInterfaces.ILevel" Collapsed="true">
+    <Position X="11.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameInterfaces\ILevel.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="OOPTeamwork.GameStructure.LevelType" Collapsed="true">

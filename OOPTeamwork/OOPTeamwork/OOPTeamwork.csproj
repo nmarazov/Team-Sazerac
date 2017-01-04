@@ -44,16 +44,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameAbstracts\Enemy.cs" />
+    <Compile Include="GameAbstracts\Level.cs" />
     <Compile Include="GameAbstracts\Player.cs" />
-    <Compile Include="GameInterfaces\IGameLogic.cs" />
+    <Compile Include="GameInterfaces\ILevel.cs" />
     <Compile Include="GameInterfaces\ILevelSelection.cs" />
+    <Compile Include="GameStructure\GameEngine.cs" />
     <Compile Include="GameStructure\Levels\FirstLevel.cs" />
     <Compile Include="GameStructure\GameLogic.cs" />
     <Compile Include="GameStructure\LevelType.cs" />
     <Compile Include="GameStructure\LevelSelection.cs" />
     <Compile Include="GameStructure\Levels\SecondLevel.cs" />
     <Compile Include="Players\Constants.cs" />
-    <Compile Include="CustomException.cs" />
+    <Compile Include="Exceptions\CustomException.cs" />
     <Compile Include="GameStructure\GameField.cs" />
     <Compile Include="GameInterfaces\IEnemy.cs" />
     <Compile Include="GameInterfaces\IPlayer.cs" />

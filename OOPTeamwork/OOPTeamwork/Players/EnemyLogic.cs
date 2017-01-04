@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace OOPTeamwork.Players
 {
+   
     public class EnemyLogic : Enemy
     {
     }

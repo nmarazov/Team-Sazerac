@@ -9,32 +9,30 @@ namespace OOPTeamwork
 {
     public struct GameField
     {
-        public static char[] inputSelection = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+        //array on ints - the numbers indicate the position of the current player
+        public static char[] inputSelection = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 
         public static void PrintFieldBorders()
         {
+            Console.Clear();
             
-
             Console.WriteLine("     |     |      ");
 
-            Console.WriteLine("  {0}  |  {1}  |  {2}", inputSelection[1], inputSelection[2], inputSelection[3]);
+            Console.WriteLine("  {0}  |  {1}  |  {2}", inputSelection[0], inputSelection[1], inputSelection[2]);
 
             Console.WriteLine("_____|_____|_____ ");
 
             Console.WriteLine("     |     |      ");
 
-            Console.WriteLine("  {0}  |  {1}  |  {2}", inputSelection[4], inputSelection[5], inputSelection[6]);
+            Console.WriteLine("  {0}  |  {1}  |  {2}", inputSelection[3], inputSelection[4], inputSelection[5]);
 
             Console.WriteLine("_____|_____|_____ ");
 
             Console.WriteLine("     |     |      ");
 
-            Console.WriteLine("  {0}  |  {1}  |  {2}", inputSelection[7], inputSelection[8], inputSelection[9]);
+            Console.WriteLine("  {0}  |  {1}  |  {2}", inputSelection[6], inputSelection[7], inputSelection[8]);
 
             Console.WriteLine("     |     |      ");
-
         }
-
-
     }
 }

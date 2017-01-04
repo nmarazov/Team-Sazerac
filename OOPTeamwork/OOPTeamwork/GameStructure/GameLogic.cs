@@ -5,56 +5,112 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OOPTeamwork.Players;
+using System.Threading;
 
 
 namespace OOPTeamwork.GameStructure
 {
-    public class GameLogic : IGameLogic
+    public class GameLogic
     {
-        public void CheckIfPositionIsTaken(int position)
+        //Check if the chosen position is free
+        //TODO: The message is showing but the method is not working properly, because it doesn't prompt the current user to select a new position, it switches to the next player.
+        //Perhaps the method should be called in a while loop in PlayerNextMove()
+
+        public static bool CheckIfPositionIsTaken(int position)
         {
-            while (true)
+            if (GameField.inputSelection[position - 1] == Constants.FirstPlayerSymol || GameField.inputSelection[position - 1] == Constants.SecondPlayerSymbol)
             {
-                if (position == Constants.FirstPlayerSymol || position == Constants.SecondPlayerSymbol)
-                {
-                    Console.WriteLine("This position is already taken!");
-                }
-                else
-                {
-                    break;
-                }
+                Console.WriteLine("This position is already taken!");
+                Thread.Sleep(1000);
+                return true;
             }
-        }
 
-        public void PlayerNextMove()
-        {
-
-            for (int i = 0; i < Constants.NumberOfPlayers; i++)
+            else
             {
-                if (i == 0)
-                {
-                    Console.Write($"Player {i} select position: ");
-                    var position = int.Parse(Console.ReadLine());
+                return false;
+            }
+                          
+        }
+        
+        //Checks if there is a winning condition or if the result is draw, if none of the conditions are satisfied, the game continues.    
+        public static int CheckForWinner()
+        {
+            //Winning Condition For Second Row   
+            if (GameField.inputSelection[0] == GameField.inputSelection[1]
+                && GameField.inputSelection[1] == GameField.inputSelection[2])
+            {
+                return 1;
+            }
 
-                    CheckIfPositionIsTaken(position);
+            //Winning Condition For Second Row   
+            else if (GameField.inputSelection[3] == GameField.inputSelection[4]
+                && GameField.inputSelection[4] == GameField.inputSelection[5])
+            {
+                return 1;
+            }
 
-                    GameField.inputSelection[position] = Constants.FirstPlayerSymol;
+            //Winning Condition For Third Row   
+            else if (GameField.inputSelection[6] == GameField.inputSelection[7] 
+                && GameField.inputSelection[7] == GameField.inputSelection[8])
+            {
+                return 1;
+            }
+          
+            //Winning Condition For First Column       
+            else if (GameField.inputSelection[0] == GameField.inputSelection[3] 
+                && GameField.inputSelection[3] == GameField.inputSelection[6])
+            {
+                return 1;
+            }
 
-                    GameField.PrintFieldBorders();
+            //Winning Condition For Second Column  
+            else if (GameField.inputSelection[1] == GameField.inputSelection[4]
+                && GameField.inputSelection[4] == GameField.inputSelection[7])
+            {
+                return 1;
+            }
 
-                }
+            //Winning Condition For Third Column  
+            else if (GameField.inputSelection[2] == GameField.inputSelection[5]
+                && GameField.inputSelection[5] == GameField.inputSelection[8])
+            {
+                return 1;
+            }
 
-                else if (i==1)
-                {
-                    Console.Write($"Player {i} select position: ");
-                    var position = int.Parse(Console.ReadLine());
+            //Winning Condition For left diagonal
+            else if (GameField.inputSelection[0] == GameField.inputSelection[4]
+                && GameField.inputSelection[4] == GameField.inputSelection[8])
+            {
+                return 1;
+            }
 
-                    CheckIfPositionIsTaken(position);
+            //Winning Condition For right diagonal
+            else if (GameField.inputSelection[2] == GameField.inputSelection[4]
+               && GameField.inputSelection[4] == GameField.inputSelection[6])
+            {
+                return 1;
+            }
 
-                    GameField.inputSelection[position] = Constants.SecondPlayerSymbol;
+            // If all the cells or values filled with X or O the result is draw
 
-                    GameField.PrintFieldBorders();
-                }
+            else if (
+                GameField.inputSelection[0] != '1' 
+                && GameField.inputSelection[1] != '2' 
+                && GameField.inputSelection[2] != '3' 
+                && GameField.inputSelection[3] != '4'
+                && GameField.inputSelection[4] != '5' 
+                && GameField.inputSelection[5] != '6'
+                && GameField.inputSelection[6] != '7' 
+                && GameField.inputSelection[7] != '8'
+                && GameField.inputSelection[8] != '9')
+       
+            {
+                return -1;
+            }
+
+            else
+            {
+                return 0;
             }
         }
     }

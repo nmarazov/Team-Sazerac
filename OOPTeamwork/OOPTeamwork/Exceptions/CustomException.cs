@@ -8,5 +8,6 @@ namespace OOPTeamwork
 {
     public class CustomException
     {
+        //TODO:
     }
 }

@@ -8,10 +8,11 @@ namespace OOPTeamwork
 {
     public interface IPlayer
     {
-        int Choice { get; set; }
+        // int Choice { get; set; }
+        int PlayerIndex { get; }
 
-        void Play();
+        void PlayerNextMove();
 
-         char PlayerSymbol { get; set; }
+     //    char PlayerSymbol { get; set; }
     }
 }
