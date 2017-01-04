@@ -11,7 +11,7 @@ namespace OOPTeamwork.GameStructure
     {
         public int SelectLevel()
         {           
-            Console.Write($"Please select a level 1 or 2 : ");
+            Console.Write($"Please select 1 for first level or 2 for second level : ");
             var userInput = int.Parse(Console.ReadLine());
          
             return userInput;
