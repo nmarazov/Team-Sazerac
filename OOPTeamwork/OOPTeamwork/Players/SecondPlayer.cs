@@ -1,10 +1,7 @@
-﻿using OOPTeamwork.GameAbstracts;
+﻿using System;
+
+using OOPTeamwork.GameAbstracts;
 using OOPTeamwork.GameStructure;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OOPTeamwork.Players
 {
@@ -23,7 +20,7 @@ namespace OOPTeamwork.Players
 
             GameLogic.CheckIfPositionIsTaken(position);
 
-            GameField.inputSelection[position - 1] = Constants.SecondPlayerSymbol;
+            GameField.InputSelection[position - 1] = Constants.SecondPlayerSymbol;
 
             GameField.PrintFieldBorders();
         }

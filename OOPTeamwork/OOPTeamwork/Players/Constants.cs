@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OOPTeamwork
+﻿namespace OOPTeamwork.Players
 {
-    //this class could be moved to a more appropriate location???
-    //more constants could be added
+    // this class could be moved to a more appropriate location???
+    // more constants could be added
     public class Constants
     {
         public const char FirstPlayerSymol = 'X';
@@ -15,6 +9,5 @@ namespace OOPTeamwork
         public const int NumberOfPlayers = 2;
         public const int FirstPlayerIndex = 1;
         public const int SecondPlayerIndex = 2;
-
     }
 }

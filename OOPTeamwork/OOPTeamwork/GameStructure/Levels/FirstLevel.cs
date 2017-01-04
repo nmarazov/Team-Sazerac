@@ -1,56 +1,51 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-using OOPTeamwork.Players;
 using OOPTeamwork.GameAbstracts;
+using OOPTeamwork.Players;
 
-namespace OOPTeamwork.GameStructure
+namespace OOPTeamwork.GameStructure.Levels
 {
     public class FirstLevel : Level
     {
-        GameLogic startGameLogic = new GameLogic();
+        private GameLogic startGameLogic = new GameLogic();
 
-        FirstPlayer firstPlayer = new FirstPlayer();
+        private FirstPlayer firstPlayer = new FirstPlayer();
 
-        SecondPlayer secondPlayer = new SecondPlayer();
+        private SecondPlayer secondPlayer = new SecondPlayer();
 
-        int player = 1;
+        private int player = 1;
 
-        int flag = 0;
+        private int flag = 0;
 
         public override void StartLevel()
         {
-
-            while (flag != 1 && flag != -1)
+            while (this.flag != 1 && this.flag != -1)
             {
-                player = 1;
+                this.player = 1;
 
-                firstPlayer.PlayerNextMove();
+                this.firstPlayer.PlayerNextMove();
                
                 GameField.PrintFieldBorders();
 
-                flag = GameLogic.CheckForWinner();
+                this.flag = GameLogic.CheckForWinner();
 
-                CheckWhoIsTheWinner(flag);
+                this.CheckWhoIsTheWinner(this.flag);
 
-                if (flag == 1 || flag == -1)
+                if (this.flag == 1 || this.flag == -1)
                 {
                     break;
                 }
 
-                secondPlayer.PlayerNextMove();
-                player++;
+                this.secondPlayer.PlayerNextMove();
+                this.player++;
                
                 GameField.PrintFieldBorders();
 
                 GameLogic.CheckForWinner();
 
-                flag = GameLogic.CheckForWinner();
+                this.flag = GameLogic.CheckForWinner();
 
-                CheckWhoIsTheWinner(flag);
+                this.CheckWhoIsTheWinner(this.flag);
             }
         }
 
@@ -58,7 +53,7 @@ namespace OOPTeamwork.GameStructure
         {
             if (flag == 1)
             {
-                var winningPlayer = player % 2;
+                var winningPlayer = this.player % 2;
 
                 if (winningPlayer == 0)
                 {
@@ -67,8 +62,7 @@ namespace OOPTeamwork.GameStructure
                
                 Console.WriteLine($"Player { winningPlayer } wins!");
             }
-
-            else if (flag == -1)
+            else if (this.flag == -1)
             {
                 Console.WriteLine("Draw");
             }

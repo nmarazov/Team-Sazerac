@@ -1,13 +1,9 @@
-﻿using OOPTeamwork.GameAbstracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using OOPTeamwork.GameAbstracts;
 
-namespace OOPTeamwork.GameStructure
+namespace OOPTeamwork.GameStructure.Levels
 {
-    class SecondLevel : Level
+    public class SecondLevel : Level
     {
         public override void StartLevel()
         {

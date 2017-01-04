@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using OOPTeamwork.GameStructure.Levels;
 
 namespace OOPTeamwork.GameStructure
 {
@@ -16,19 +14,16 @@ namespace OOPTeamwork.GameStructure
 
             var selectedLevel = level.SelectLevel(); 
 
-            if (selectedLevel == (int)(LevelType.one))
+            if (selectedLevel == (int)LevelType.Оne)
             {
                 GameField.PrintFieldBorders();
                 firstLevel.StartLevel();
             }
-
-            else if (selectedLevel == (int)(LevelType.two))
+            else if (selectedLevel == (int)LevelType.Тwo)
             {
-              
+                // TODO: secondLevel.StartSeconsLevel;
                 GameField.PrintFieldBorders();
-                //TODO: secondLevel.StartSeconsLevel;
             }
-
             else
             {
                 throw new ArgumentException("Please select level 1 or 2!");

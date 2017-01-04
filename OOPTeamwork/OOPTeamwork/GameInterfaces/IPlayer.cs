@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OOPTeamwork
+﻿namespace OOPTeamwork.GameInterfaces
 {
     public interface IPlayer
     {
@@ -13,6 +7,6 @@ namespace OOPTeamwork
 
         void PlayerNextMove();
 
-     //    char PlayerSymbol { get; set; }
+     // char PlayerSymbol { get; set; }
     }
 }
