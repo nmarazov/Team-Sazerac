@@ -11,7 +11,7 @@ namespace OOPTeamwork
     {
         public static void Main()
         {
-            GameEngine.SatrtGame();                       
+            GameEngine.StartGame();                       
         }
     }
 }
