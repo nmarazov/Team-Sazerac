@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using OOPTeamwork.GameInterfaces;
+
 namespace OOPTeamwork.GameAbstracts
 {
     public abstract class Enemy : IEnemy
