@@ -28,6 +28,8 @@ namespace OOPTeamwork.GameStructure
             Console.WriteLine("  {0}  |  {1}  |  {2}", InputSelection[6], InputSelection[7], InputSelection[8]);
 
             Console.WriteLine("     |     |      ");
+
+            Console.WriteLine();
         }
     }
 }
