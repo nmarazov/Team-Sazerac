@@ -1,4 +1,4 @@
-﻿namespace OOPTeamwork.Players
+﻿namespace OOPTeamwork.Core
 {
     // this class could be moved to a more appropriate location???
     // more constants could be added

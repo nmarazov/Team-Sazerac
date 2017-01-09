@@ -1,8 +1,7 @@
 ﻿using System;
-
 using OOPTeamwork.GameInterfaces;
 
-namespace OOPTeamwork.GameStructure
+namespace OOPTeamwork.Core
 {
     public class LevelSelection : ILevelSelection
     {

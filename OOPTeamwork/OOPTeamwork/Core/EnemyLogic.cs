@@ -1,6 +1,6 @@
-﻿using OOPTeamwork.GameAbstracts;
+﻿using OOPTeamwork.Models.GameAbstracts;
 
-namespace OOPTeamwork.Players
+namespace OOPTeamwork.Core
 {
     public class EnemyLogic : Enemy
     {

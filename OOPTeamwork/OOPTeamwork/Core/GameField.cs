@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OOPTeamwork.GameStructure
+namespace OOPTeamwork.Core
 {
     public struct GameField
     {

@@ -1,4 +1,4 @@
-﻿namespace OOPTeamwork.GameStructure
+﻿namespace OOPTeamwork.Models.Enums
 {
     public enum LevelType
     {

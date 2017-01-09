@@ -1,4 +1,4 @@
-﻿namespace OOPTeamwork.GameStructure
+﻿namespace OOPTeamwork.Core
 {
     public class ScoreBoard
     {

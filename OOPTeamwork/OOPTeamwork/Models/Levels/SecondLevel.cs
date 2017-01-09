@@ -1,7 +1,7 @@
 ﻿using System;
-using OOPTeamwork.GameAbstracts;
+using OOPTeamwork.Models.GameAbstracts;
 
-namespace OOPTeamwork.GameStructure.Levels
+namespace OOPTeamwork.Models.Levels
 {
     public class SecondLevel : Level
     {

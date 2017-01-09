@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Threading;
-using OOPTeamwork.Players;
 
-namespace OOPTeamwork.GameStructure
+namespace OOPTeamwork.Core
 {
     public class GameLogic
     {

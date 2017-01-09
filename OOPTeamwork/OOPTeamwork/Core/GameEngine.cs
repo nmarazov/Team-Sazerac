@@ -1,8 +1,11 @@
 ﻿using System;
+using OOPTeamwork.Core.Contracts;
 using OOPTeamwork.GameInterfaces;
-using OOPTeamwork.GameStructure.Levels;
+using OOPTeamwork.GameStructure;
+using OOPTeamwork.Models.Enums;
+using OOPTeamwork.Models.Levels;
 
-namespace OOPTeamwork.GameStructure
+namespace OOPTeamwork.Core
 {
     public class GameEngine
     {

@@ -1,4 +1,4 @@
-﻿using OOPTeamwork.GameStructure;
+﻿using OOPTeamwork.Core;
 
 namespace OOPTeamwork
 {

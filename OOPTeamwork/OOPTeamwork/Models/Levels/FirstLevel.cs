@@ -1,9 +1,9 @@
 ﻿using System;
+using OOPTeamwork.Core;
+using OOPTeamwork.Models.GameAbstracts;
+using OOPTeamwork.Models.Players;
 
-using OOPTeamwork.GameAbstracts;
-using OOPTeamwork.Players;
-
-namespace OOPTeamwork.GameStructure.Levels
+namespace OOPTeamwork.Models.Levels
 {
     public class FirstLevel : Level
     {

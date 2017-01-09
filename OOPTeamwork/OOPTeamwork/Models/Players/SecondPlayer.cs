@@ -1,9 +1,8 @@
 ﻿using System;
+using OOPTeamwork.Core;
+using OOPTeamwork.Models.GameAbstracts;
 
-using OOPTeamwork.GameAbstracts;
-using OOPTeamwork.GameStructure;
-
-namespace OOPTeamwork.Players
+namespace OOPTeamwork.Models.Players
 {
     public class SecondPlayer : Player
     {

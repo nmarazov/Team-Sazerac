@@ -1,4 +1,4 @@
-﻿namespace OOPTeamwork.GameInterfaces
+﻿namespace OOPTeamwork.Models.Contracts
 {
     public interface IEnemy
     {

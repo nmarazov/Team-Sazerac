@@ -1,6 +1,6 @@
-﻿using OOPTeamwork.GameInterfaces;
+﻿using OOPTeamwork.Models.Contracts;
 
-namespace OOPTeamwork.GameAbstracts
+namespace OOPTeamwork.Models.GameAbstracts
 {
     public abstract class Level : ILevel
     {

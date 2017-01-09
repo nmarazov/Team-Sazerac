@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OOPTeamwork.Models.Contracts;
 
-using OOPTeamwork.GameInterfaces;
-
-namespace OOPTeamwork.GameAbstracts
+namespace OOPTeamwork.Models.GameAbstracts
 {
     public abstract class Player : IPlayer
     {
