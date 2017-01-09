@@ -43,6 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Contracts\IReader.cs" />
+    <Compile Include="Core\Contracts\IWriter.cs" />
+    <Compile Include="Core\Providers\ConsoleReaderProvider.cs" />
+    <Compile Include="Core\Providers\ConsoleWriterProvider.cs" />
     <Compile Include="Models\GameAbstracts\Enemy.cs" />
     <Compile Include="Models\GameAbstracts\Level.cs" />
     <Compile Include="Models\GameAbstracts\Player.cs" />
@@ -50,7 +54,6 @@
     <Compile Include="Core\Contracts\ILevelSelection.cs" />
     <Compile Include="Core\GameEngine.cs" />
     <Compile Include="Core\Contracts\ILevelFactory.cs" />
-    <Compile Include="Core\Contracts\IReaderWriterProvider.cs" />
     <Compile Include="Models\Levels\FirstLevel.cs" />
     <Compile Include="Core\GameLogic.cs" />
     <Compile Include="Models\Enums\LevelType.cs" />
@@ -73,9 +76,7 @@
     <None Include="App.config" />
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Core\Providers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

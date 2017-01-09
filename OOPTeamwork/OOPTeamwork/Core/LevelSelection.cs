@@ -1,5 +1,5 @@
 ﻿using System;
-using OOPTeamwork.GameInterfaces;
+using OOPTeamwork.Core.Contracts;
 
 namespace OOPTeamwork.Core
 {

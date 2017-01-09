@@ -1,4 +1,4 @@
-﻿namespace OOPTeamwork.GameInterfaces
+﻿namespace OOPTeamwork.Core.Contracts
 {
     public interface ILevelSelection
     {

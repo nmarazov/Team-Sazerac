@@ -1,7 +1,5 @@
 ﻿using System;
 using OOPTeamwork.Core.Contracts;
-using OOPTeamwork.GameInterfaces;
-using OOPTeamwork.GameStructure;
 using OOPTeamwork.Models.Enums;
 using OOPTeamwork.Models.Levels;
 
