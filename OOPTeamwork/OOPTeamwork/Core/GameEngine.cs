@@ -1,7 +1,4 @@
-﻿using System;
-using OOPTeamwork.Core.Contracts;
-using OOPTeamwork.Models.Enums;
-using OOPTeamwork.Models.Levels;
+﻿using OOPTeamwork.Core.Contracts;
 
 namespace OOPTeamwork.Core
 {

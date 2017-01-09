@@ -1,4 +1,5 @@
 ﻿using System;
+using OOPTeamwork.Core.Contracts;
 using OOPTeamwork.Models.GameAbstracts;
 
 namespace OOPTeamwork.Models.Levels
@@ -8,6 +9,9 @@ namespace OOPTeamwork.Models.Levels
         public override void StartLevel()
         {
             throw new NotImplementedException();
+        }
+
+        {
         }
     }
 }
