@@ -7,34 +7,25 @@ namespace OOPTeamwork.Core
 {
     public class GameEngine
     {
-        private readonly ILevelSelection levelSelection;
-        public GameEngine(ILevelFactory levelFactory, IReaderWriterProvider readerWriterProvider, )
+        private readonly ILevelFactory levelFactory;
+        private readonly IReader reader;
+        private readonly IWriter writer;
+
+        public GameEngine(ILevelFactory levelFactory, IReader reader, IWriter writer)
         {
-            this.levelSelection = levelSelection;
+            this.levelFactory = levelFactory;
+            this.reader = reader;
+            this.writer = writer;
         }
 
         public void StartGame()
         {
-            LevelSelection level = new LevelSelection();
-
-            FirstLevel firstLevel = new FirstLevel();
-
-            this.levelSelection.SelectLevel(); 
-
-            if (selectedLevel == (int)LevelType.Оne)
-            {
-                GameField.PrintFieldBorders();
-                firstLevel.StartLevel();
-            }
-            else if (selectedLevel == (int)LevelType.Тwo)
-            {
-                // TODO: secondLevel.StartSeconsLevel;
-                GameField.PrintFieldBorders();
-            }
-            else
-            {
-                throw new ArgumentException("Please select level 1 or 2!");
-            }
+            writer.WriteLine("Enter Level");
+            var inputLevel = reader.ReadLine();
+            var selectedLevel = levelFactory.GetLevel(inputLevel);
+            
+            GameField.PrintFieldBorders();
+            selectedLevel.StartLevel();
         }       
     }
 }

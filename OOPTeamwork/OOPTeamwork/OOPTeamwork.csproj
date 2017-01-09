@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Core\Contracts\IReader.cs" />
     <Compile Include="Core\Contracts\IWriter.cs" />
+    <Compile Include="Core\LevelFactory.cs" />
     <Compile Include="Core\Providers\ConsoleReaderProvider.cs" />
     <Compile Include="Core\Providers\ConsoleWriterProvider.cs" />
     <Compile Include="Models\GameAbstracts\Enemy.cs" />

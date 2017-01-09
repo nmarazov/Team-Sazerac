@@ -1,4 +1,5 @@
 ﻿using OOPTeamwork.Core;
+using OOPTeamwork.Core.Providers;
 
 namespace OOPTeamwork
 {
@@ -6,7 +7,13 @@ namespace OOPTeamwork
     {
         public static void Main()
         {
-            GameEngine.StartGame();                       
+            var reader = new ConsoleReaderProvider();
+            var writer = new ConsoleWriterProvider();
+            var levelFactory = new LevelFactory();
+
+            var engine = new GameEngine(levelFactory, reader, writer);
+
+            engine.StartGame();                       
         }
     }
 }
