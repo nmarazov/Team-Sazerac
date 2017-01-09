@@ -19,7 +19,7 @@ namespace OOPTeamwork.Models.Players
 
             GameLogic.CheckIfPositionIsTaken(position);
 
-            GameField.InputSelection[position - 1] = Constants.SecondPlayerSymbol;
+            GameField.Instance.InputSelection[position - 1] = Constants.SecondPlayerSymbol;
         }
     }
 }

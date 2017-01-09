@@ -1,5 +1,6 @@
 ﻿using OOPTeamwork.Core.Contracts;
 using OOPTeamwork.Core.Exceptions;
+using OOPTeamwork.Core.Providers;
 using OOPTeamwork.Models.Contracts;
 using OOPTeamwork.Models.Levels;
 
@@ -12,9 +13,9 @@ namespace OOPTeamwork.Core
             switch (level)
             {
                 case "1":
-                    return new FirstLevel();
+                    return new FirstLevel(GameField.Instance, new ConsoleWriterProvider(), new ConsoleReaderProvider());
                 case "2":
-                    return new SecondLevel();
+                    return new SecondLevel(GameField.Instance, new ConsoleWriterProvider(), new ConsoleReaderProvider());
                 default:
                     throw new InvalidLevelSelectException("Incorect level selection");
             }

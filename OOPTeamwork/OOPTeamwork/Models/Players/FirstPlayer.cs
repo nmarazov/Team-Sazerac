@@ -19,7 +19,7 @@ namespace OOPTeamwork.Models.Players
 
             GameLogic.CheckIfPositionIsTaken(position);
 
-            GameField.InputSelection[position - 1] = Constants.FirstPlayerSymol;
+            GameField.Instance.InputSelection[position - 1] = Constants.FirstPlayerSymol;
         }
     }
 }

@@ -5,9 +5,27 @@ namespace OOPTeamwork.Core
 {
     public class GameField : IGameField
     {
-
+        private static GameField instance;
+         
         // array on ints - the numbers indicate the position of the current player
-        public static char[] InputSelection = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+        public char[] InputSelection = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+
+        private GameField()
+        {
+        }
+
+        public static GameField Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new GameField();
+                }
+
+                return instance;
+            }
+        }
 
         public string PrintGameField()
         {

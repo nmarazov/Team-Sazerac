@@ -11,6 +11,8 @@ namespace OOPTeamwork.Models.Levels
             throw new NotImplementedException();
         }
 
+        public SecondLevel(IGameField gameField, IWriter writer, IReader reader)
+            : base(gameField, writer, reader)
         {
         }
     }

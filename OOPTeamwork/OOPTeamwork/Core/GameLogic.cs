@@ -10,7 +10,7 @@ namespace OOPTeamwork.Core
         // Perhaps the method should be called in a while loop in PlayerNextMove()
         public static bool CheckIfPositionIsTaken(int position)
         {
-            if (GameField.InputSelection[position - 1] == Constants.FirstPlayerSymol || GameField.InputSelection[position - 1] == Constants.SecondPlayerSymbol)
+            if (GameField.Instance.InputSelection[position - 1] == Constants.FirstPlayerSymol || GameField.Instance.InputSelection[position - 1] == Constants.SecondPlayerSymbol)
             {
                 Console.WriteLine("This position is already taken!");
                 Thread.Sleep(1000);
@@ -26,72 +26,72 @@ namespace OOPTeamwork.Core
         public static int CheckForWinner()
         {
             // Winning Condition For Second Row   
-            if (GameField.InputSelection[0] == GameField.InputSelection[1]
-                && GameField.InputSelection[1] == GameField.InputSelection[2])
+            if (GameField.Instance.InputSelection[0] == GameField.Instance.InputSelection[1]
+                && GameField.Instance.InputSelection[1] == GameField.Instance.InputSelection[2])
             {
                 return 1;
             }
 
             // Winning Condition For Second Row   
-            else if (GameField.InputSelection[3] == GameField.InputSelection[4]
-                && GameField.InputSelection[4] == GameField.InputSelection[5])
+            else if (GameField.Instance.InputSelection[3] == GameField.Instance.InputSelection[4]
+                && GameField.Instance.InputSelection[4] == GameField.Instance.InputSelection[5])
             {
                 return 1;
             }
 
             // Winning Condition For Third Row
-            else if (GameField.InputSelection[6] == GameField.InputSelection[7] 
-                && GameField.InputSelection[7] == GameField.InputSelection[8])
+            else if (GameField.Instance.InputSelection[6] == GameField.Instance.InputSelection[7] 
+                && GameField.Instance.InputSelection[7] == GameField.Instance.InputSelection[8])
             {
                 return 1;
             }
           
             // Winning Condition For First Column
-            else if (GameField.InputSelection[0] == GameField.InputSelection[3] 
-                && GameField.InputSelection[3] == GameField.InputSelection[6])
+            else if (GameField.Instance.InputSelection[0] == GameField.Instance.InputSelection[3] 
+                && GameField.Instance.InputSelection[3] == GameField.Instance.InputSelection[6])
             {
                 return 1;
             }
 
             // Winning Condition For Second Column
-            else if (GameField.InputSelection[1] == GameField.InputSelection[4]
-                && GameField.InputSelection[4] == GameField.InputSelection[7])
+            else if (GameField.Instance.InputSelection[1] == GameField.Instance.InputSelection[4]
+                && GameField.Instance.InputSelection[4] == GameField.Instance.InputSelection[7])
             {
                 return 1;
             }
 
             // Winning Condition For Third Column
-            else if (GameField.InputSelection[2] == GameField.InputSelection[5]
-                && GameField.InputSelection[5] == GameField.InputSelection[8])
+            else if (GameField.Instance.InputSelection[2] == GameField.Instance.InputSelection[5]
+                && GameField.Instance.InputSelection[5] == GameField.Instance.InputSelection[8])
             {
                 return 1;
             }
 
             // Winning Condition For left diagonal
-            else if (GameField.InputSelection[0] == GameField.InputSelection[4]
-                && GameField.InputSelection[4] == GameField.InputSelection[8])
+            else if (GameField.Instance.InputSelection[0] == GameField.Instance.InputSelection[4]
+                && GameField.Instance.InputSelection[4] == GameField.Instance.InputSelection[8])
             {
                 return 1;
             }
 
             // Winning Condition For right diagonal
-            else if (GameField.InputSelection[2] == GameField.InputSelection[4]
-               && GameField.InputSelection[4] == GameField.InputSelection[6])
+            else if (GameField.Instance.InputSelection[2] == GameField.Instance.InputSelection[4]
+               && GameField.Instance.InputSelection[4] == GameField.Instance.InputSelection[6])
             {
                 return 1;
             }
 
             // If all the cells or values filled with X or O the result is draw
             else if (
-                GameField.InputSelection[0] != '1' 
-                && GameField.InputSelection[1] != '2' 
-                && GameField.InputSelection[2] != '3' 
-                && GameField.InputSelection[3] != '4'
-                && GameField.InputSelection[4] != '5' 
-                && GameField.InputSelection[5] != '6'
-                && GameField.InputSelection[6] != '7' 
-                && GameField.InputSelection[7] != '8'
-                && GameField.InputSelection[8] != '9')
+                GameField.Instance.InputSelection[0] != '1' 
+                && GameField.Instance.InputSelection[1] != '2' 
+                && GameField.Instance.InputSelection[2] != '3' 
+                && GameField.Instance.InputSelection[3] != '4'
+                && GameField.Instance.InputSelection[4] != '5' 
+                && GameField.Instance.InputSelection[5] != '6'
+                && GameField.Instance.InputSelection[6] != '7' 
+                && GameField.Instance.InputSelection[7] != '8'
+                && GameField.Instance.InputSelection[8] != '9')
             {
                 return -1;
             }
