@@ -13,7 +13,7 @@ namespace OOPTeamwork.Core
             
             Console.WriteLine("     |     |      ");
 
-            Console.WriteLine("  {0}  |  {1}  |  {2}", InputSelection[0], InputSelection[1], InputSelection[2]);
+            Console.WriteLine("  {0}  |  {1}  |  {2}", InputSelection[6], InputSelection[7], InputSelection[8]);
 
             Console.WriteLine("_____|_____|_____ ");
 
@@ -25,7 +25,7 @@ namespace OOPTeamwork.Core
 
             Console.WriteLine("     |     |      ");
 
-            Console.WriteLine("  {0}  |  {1}  |  {2}", InputSelection[6], InputSelection[7], InputSelection[8]);
+            Console.WriteLine("  {0}  |  {1}  |  {2}", InputSelection[0], InputSelection[1], InputSelection[2]);
 
             Console.WriteLine("     |     |      ");
 
