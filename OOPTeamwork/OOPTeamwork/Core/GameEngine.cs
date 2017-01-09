@@ -1,18 +1,24 @@
 ﻿using System;
-
+using OOPTeamwork.GameInterfaces;
 using OOPTeamwork.GameStructure.Levels;
 
 namespace OOPTeamwork.GameStructure
 {
     public class GameEngine
     {
-        public static void StartGame()
+        private readonly ILevelSelection levelSelection;
+        public GameEngine(ILevelFactory levelFactory, IReaderWriterProvider readerWriterProvider, )
+        {
+            this.levelSelection = levelSelection;
+        }
+
+        public void StartGame()
         {
             LevelSelection level = new LevelSelection();
 
             FirstLevel firstLevel = new FirstLevel();
 
-            var selectedLevel = level.SelectLevel(); 
+            this.levelSelection.SelectLevel(); 
 
             if (selectedLevel == (int)LevelType.Оne)
             {
