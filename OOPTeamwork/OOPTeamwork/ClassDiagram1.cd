@@ -137,13 +137,6 @@
       <FileName>GameInterfaces\IPlayer.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="OOPTeamwork.Core.Contracts.ILevelSelection" Collapsed="true">
-    <Position X="11.5" Y="2.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Core\Contracts\ILevelSelection.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
   <Interface Name="OOPTeamwork.GameInterfaces.ILevel" Collapsed="true">
     <Position X="11.5" Y="3" Width="1.5" />
     <TypeIdentifier>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using OOPTeamwork.Core;
 using OOPTeamwork.Models.GameAbstracts;
 using OOPTeamwork.Models.Players;
@@ -17,15 +18,22 @@ namespace OOPTeamwork.Models.Levels
 
         private int flag = 0;
 
+        public FirstLevel()
+        {
+            
+        }
+
         public override void StartLevel()
         {
+            GameField.PrintGameField();
+
             while (this.flag != 1 && this.flag != -1)
             {
                 this.player = 1;
 
                 this.firstPlayer.PlayerNextMove();
-               
-                GameField.PrintFieldBorders();
+
+                GameField.PrintGameField();
 
                 this.flag = GameLogic.CheckForWinner();
 
@@ -39,7 +47,7 @@ namespace OOPTeamwork.Models.Levels
                 this.secondPlayer.PlayerNextMove();
                 this.player++;
                
-                GameField.PrintFieldBorders();
+                GameField.PrintGameField();
 
                 GameLogic.CheckForWinner();
 

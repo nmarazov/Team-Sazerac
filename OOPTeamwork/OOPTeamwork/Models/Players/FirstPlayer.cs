@@ -21,7 +21,7 @@ namespace OOPTeamwork.Models.Players
 
             GameField.InputSelection[position - 1] = Constants.FirstPlayerSymol;
 
-            GameField.PrintFieldBorders();
+            GameField.PrintGameField();
         }
     }
 }

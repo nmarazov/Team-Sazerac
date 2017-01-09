@@ -1,5 +1,5 @@
-﻿using System;
-using OOPTeamwork.Core.Contracts;
+﻿using OOPTeamwork.Core.Contracts;
+using OOPTeamwork.Core.Exceptions;
 using OOPTeamwork.Models.Contracts;
 using OOPTeamwork.Models.Levels;
 
@@ -16,7 +16,7 @@ namespace OOPTeamwork.Core
                 case "2":
                     return new SecondLevel();
                 default:
-                    throw new ArgumentException("Incorect level");
+                    throw new InvalidLevelSelectException("Incorect level selection");
             }
         }
     }

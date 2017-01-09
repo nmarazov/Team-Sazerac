@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Contracts\IGameField.cs" />
     <Compile Include="Core\Contracts\IReader.cs" />
     <Compile Include="Core\Contracts\IWriter.cs" />
     <Compile Include="Core\LevelFactory.cs" />
@@ -52,16 +53,14 @@
     <Compile Include="Models\GameAbstracts\Level.cs" />
     <Compile Include="Models\GameAbstracts\Player.cs" />
     <Compile Include="Models\Contracts\ILevel.cs" />
-    <Compile Include="Core\Contracts\ILevelSelection.cs" />
     <Compile Include="Core\GameEngine.cs" />
     <Compile Include="Core\Contracts\ILevelFactory.cs" />
     <Compile Include="Models\Levels\FirstLevel.cs" />
     <Compile Include="Core\GameLogic.cs" />
     <Compile Include="Models\Enums\LevelType.cs" />
-    <Compile Include="Core\LevelSelection.cs" />
     <Compile Include="Models\Levels\SecondLevel.cs" />
     <Compile Include="Core\Constants.cs" />
-    <Compile Include="Core\Exceptions\CustomException.cs" />
+    <Compile Include="Core\Exceptions\InvalidLevelSelectException.cs" />
     <Compile Include="Core\GameField.cs" />
     <Compile Include="Models\Contracts\IEnemy.cs" />
     <Compile Include="Models\Contracts\IPlayer.cs" />

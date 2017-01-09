@@ -21,7 +21,7 @@ namespace OOPTeamwork.Models.Players
 
             GameField.InputSelection[position - 1] = Constants.SecondPlayerSymbol;
 
-            GameField.PrintFieldBorders();
+            GameField.PrintGameField();
         }
     }
 }

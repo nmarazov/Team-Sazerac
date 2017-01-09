@@ -24,7 +24,6 @@ namespace OOPTeamwork.Core
             var inputLevel = reader.ReadLine();
             var selectedLevel = levelFactory.GetLevel(inputLevel);
             
-            GameField.PrintFieldBorders();
             selectedLevel.StartLevel();
         }       
     }

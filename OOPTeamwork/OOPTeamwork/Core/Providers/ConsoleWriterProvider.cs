@@ -15,9 +15,14 @@ namespace OOPTeamwork.Core.Providers
             Console.WriteLine(message);
         }
 
-        public void ChangeColor()
+        public void ChangeColor(ConsoleColor color)
         {
-            Console.BackgroundColor = ConsoleColor.Cyan;
+            Console.BackgroundColor = color;
+        }
+
+        public void Clear()
+        {
+            Console.Clear();
         }
 
         public void ResetColor()
