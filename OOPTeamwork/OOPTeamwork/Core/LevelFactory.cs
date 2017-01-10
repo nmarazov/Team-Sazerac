@@ -15,10 +15,8 @@ namespace OOPTeamwork.Core
             {
                 case (int)LevelType.Оne:
                     return new FirstLevel(GameField.Instance, new ConsoleWriterProvider(), new ConsoleReaderProvider());
-
                 case (int)LevelType.Тwo:
                     return new SecondLevel(GameField.Instance, new ConsoleWriterProvider(), new ConsoleReaderProvider());
-
                 default: throw new InvalidLevelSelectException("Incorect level selection");
             }
         }
