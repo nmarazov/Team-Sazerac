@@ -17,9 +17,9 @@ namespace OOPTeamwork.Core
 
         public void StartGame()
         {
-            writer.WriteLine("Enter Level");
-            var inputLevel = int.Parse(reader.ReadLine());
-            var selectedLevel = levelFactory.GetLevel(inputLevel);
+            this.writer.WriteLine("Enter Level");
+            var inputLevel = int.Parse(this.reader.ReadLine());
+            var selectedLevel = this.levelFactory.GetLevel(inputLevel);
             
             selectedLevel.StartLevel();
         }       

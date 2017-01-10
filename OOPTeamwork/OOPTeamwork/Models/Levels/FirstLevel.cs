@@ -12,8 +12,6 @@ namespace OOPTeamwork.Models.Levels
         private readonly ManualPlayer firstPlayer = new ManualPlayer(Constants.FirstPlayerIndex, Constants.FirstPlayerSymol);
 
         private readonly ManualPlayer secondPlayer = new ManualPlayer(Constants.SecondPlayerIndex, Constants.SecondPlayerSymbol);
-
-        private GameLogic startGameLogic = new GameLogic();
        
         private int player = 1;
 

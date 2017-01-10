@@ -41,6 +41,5 @@ namespace OOPTeamwork.Models.GameAbstracts
         }
 
         public abstract void PlayerNextMove();
-            
     }
 }

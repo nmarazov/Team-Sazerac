@@ -3,7 +3,7 @@ using OOPTeamwork.Core.Contracts;
 
 namespace OOPTeamwork.Core.Providers
 {
-    class ConsoleWriterProvider : IWriter
+    public class ConsoleWriterProvider : IWriter
     {
         public void Write(string message)
         {
