@@ -6,6 +6,14 @@ namespace OOPTeamwork.Models.GameAbstracts
     {
         private int playerIndex;
 
+        private char playerSymbol;
+
+        public Player(int playerIndex, char playerSymbol)
+        {
+            this.PlayerIndex = playerIndex;
+            this.PlayerSymbol = playerSymbol;
+        }
+
         public int PlayerIndex
         {
             get
@@ -13,9 +21,22 @@ namespace OOPTeamwork.Models.GameAbstracts
                 return this.playerIndex;
             }
 
-            protected set
+            private set
             {
                 this.playerIndex = value;
+            }
+        }
+
+        public char PlayerSymbol
+        {
+            get
+            {
+                return this.playerSymbol;                
+            }
+
+            private set
+            {
+                this.playerSymbol = value;
             }
         }
 

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.CodeDom;
+
 using OOPTeamwork.Core;
 using OOPTeamwork.Core.Contracts;
 using OOPTeamwork.Models.GameAbstracts;
@@ -9,12 +9,12 @@ namespace OOPTeamwork.Models.Levels
 {
     public class FirstLevel : Level
     {
+        private readonly ManualPlayer firstPlayer = new ManualPlayer(Constants.FirstPlayerIndex, Constants.FirstPlayerSymol);
+
+        private readonly ManualPlayer secondPlayer = new ManualPlayer(Constants.SecondPlayerIndex, Constants.SecondPlayerSymbol);
+
         private GameLogic startGameLogic = new GameLogic();
-
-        private readonly FirstPlayer firstPlayer = new FirstPlayer();
-
-        private readonly SecondPlayer secondPlayer = new SecondPlayer();
-
+       
         private int player = 1;
 
         private int flag = 0;

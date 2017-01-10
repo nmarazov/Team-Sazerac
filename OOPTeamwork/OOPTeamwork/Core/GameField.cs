@@ -6,12 +6,12 @@ namespace OOPTeamwork.Core
     public class GameField : IGameField
     {
         private static GameField instance;
-         
-        // array on ints - the numbers indicate the position of the current player
-        public char[] InputSelection = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+
+        private char[] inputSelection;
 
         private GameField()
         {
+            this.inputSelection = new[] { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
         }
 
         public static GameField Instance
@@ -27,6 +27,19 @@ namespace OOPTeamwork.Core
             }
         }
 
+        public char[] InputSelection
+        {
+            get
+            {
+                return this.inputSelection;
+            }
+
+            private set
+            {
+                this.inputSelection = value;
+            }
+        }
+        
         public string PrintGameField()
         {
             var result = new StringBuilder();
