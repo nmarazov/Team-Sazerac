@@ -4,16 +4,12 @@ using System.Threading;
 namespace OOPTeamwork.Core
 {
     public class GameLogic
-    {
-        // Check if the chosen position is free
-        // TODO: The message is showing but the method is not working properly, because it doesn't prompt the current user to select a new position, it switches to the next player.
-        // Perhaps the method should be called in a while loop in PlayerNextMove()
+    {       
         public static bool CheckIfPositionIsTaken(int position)
         {
             if (GameField.Instance.InputSelection[position - 1] == Constants.FirstPlayerSymol || GameField.Instance.InputSelection[position - 1] == Constants.SecondPlayerSymbol)
             {
                 Console.WriteLine("This position is already taken!");
-                Thread.Sleep(1000);
                 return true;
             }
             else

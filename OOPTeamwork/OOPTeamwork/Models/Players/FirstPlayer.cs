@@ -17,9 +17,14 @@ namespace OOPTeamwork.Models.Players
 
             var position = int.Parse(Console.ReadLine());
 
-            GameLogic.CheckIfPositionIsTaken(position);
-
-            GameField.Instance.InputSelection[position - 1] = Constants.FirstPlayerSymol;
+            if (GameLogic.CheckIfPositionIsTaken(position) == true)
+            {
+                this.PlayerNextMove();
+            }
+            else
+            {
+                GameField.Instance.InputSelection[position - 1] = Constants.FirstPlayerSymol;
+            }
         }
     }
 }
