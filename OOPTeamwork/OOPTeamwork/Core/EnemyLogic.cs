@@ -1,22 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using OOPTeamwork.Models.Contracts;
 using OOPTeamwork.Models.GameAbstracts;
 
 namespace OOPTeamwork.Core
 {
-    public class EnemyLogic : Enemy
+    public class EnemyLogic : Player
     {
         public List<int> ComputerMoves = new List<int>();
 
-        public EnemyLogic()
+        public EnemyLogic(int playerIndex, char playerSymbol) 
+            : base(playerIndex, playerSymbol)
         {
-            this.PlayerIndex = Constants.SecondPlayerIndex;
         }
 
-        public int PlayerIndex { get; set; }
-
-        public void PlayerNextMove()
+        public override void PlayerNextMove()
         {
             Console.Write($"Player {this.PlayerIndex} is the computer: ");
             var position = 0; //the first position is always 0 for the computer

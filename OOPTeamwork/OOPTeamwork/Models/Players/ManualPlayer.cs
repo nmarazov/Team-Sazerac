@@ -7,7 +7,8 @@ namespace OOPTeamwork.Models.Players
 {
     public class ManualPlayer : Player
     {
-        public ManualPlayer(int playerIndex, char playerSymbol) : base(playerIndex, playerSymbol)
+        public ManualPlayer(int playerIndex, char playerSymbol) 
+            : base(playerIndex, playerSymbol)
         {
         }
 
