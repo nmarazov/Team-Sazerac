@@ -57,14 +57,14 @@
     <Compile Include="Core\Contracts\ILevelFactory.cs" />
     <Compile Include="Models\Levels\FirstLevel.cs" />
     <Compile Include="Core\GameLogic.cs" />
-    <Compile Include="Models\Enums\LevelType.cs" />
+    <Compile Include="Common\Enums\LevelType.cs" />
     <Compile Include="Models\Levels\SecondLevel.cs" />
-    <Compile Include="Core\Constants.cs" />
+    <Compile Include="Common\Constants.cs" />
     <Compile Include="Core\Exceptions\InvalidLevelSelectException.cs" />
     <Compile Include="Core\GameField.cs" />
     <Compile Include="Models\Contracts\IEnemy.cs" />
     <Compile Include="Models\Contracts\IPlayer.cs" />
-    <Compile Include="Core\EnemyLogic.cs" />
+    <Compile Include="Models\Players\EnemyLogic.cs" />
     <Compile Include="Models\Players\ManualPlayer.cs" />
     <Compile Include="StartUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

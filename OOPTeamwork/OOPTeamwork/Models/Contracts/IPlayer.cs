@@ -2,11 +2,12 @@
 {
     public interface IPlayer
     {
-        // int Choice { get; set; }
+        
         int PlayerIndex { get; }
+
+        char PlayerSymbol { get; }
 
         void PlayerNextMove();
 
-     // char PlayerSymbol { get; set; }
     }
 }

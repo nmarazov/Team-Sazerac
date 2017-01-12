@@ -1,8 +1,11 @@
-﻿using OOPTeamwork.Models.Contracts;
+﻿using System;
+using System.Collections.Generic;
+using OOPTeamwork.Models.Contracts;
 
 namespace OOPTeamwork.Models.GameAbstracts
 {
-    public abstract class Enemy : IEnemy
+    public abstract class Enemy
     {
+       
     }
 }

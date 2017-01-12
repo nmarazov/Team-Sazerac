@@ -1,12 +1,14 @@
 ﻿using System;
 
+using OOPTeamwork.Common;
+
 namespace OOPTeamwork.Core
 {
     public class GameLogic
     {       
         public static bool CheckIfPositionIsTaken(int position)
         {
-            if (GameField.Instance.InputSelection[position - 1] == Constants.FirstPlayerSymol || GameField.Instance.InputSelection[position - 1] == Constants.SecondPlayerSymbol)
+            if (GameField.Instance.InputSelection[position - 1] == Constants.FirstPlayerSymbol || GameField.Instance.InputSelection[position - 1] == Constants.SecondPlayerSymbol)
             {
                 Console.WriteLine("This position is already taken!");
                 return true;

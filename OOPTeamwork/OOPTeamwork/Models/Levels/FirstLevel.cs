@@ -4,12 +4,13 @@ using OOPTeamwork.Core;
 using OOPTeamwork.Core.Contracts;
 using OOPTeamwork.Models.GameAbstracts;
 using OOPTeamwork.Models.Players;
+using OOPTeamwork.Common;
 
 namespace OOPTeamwork.Models.Levels
 {
     public class FirstLevel : Level
     {
-        private readonly ManualPlayer firstPlayer = new ManualPlayer(Constants.FirstPlayerIndex, Constants.FirstPlayerSymol);
+        private readonly ManualPlayer firstPlayer = new ManualPlayer(Constants.FirstPlayerIndex, Constants.FirstPlayerSymbol);
 
         private readonly ManualPlayer secondPlayer = new ManualPlayer(Constants.SecondPlayerIndex, Constants.SecondPlayerSymbol);
        

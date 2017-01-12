@@ -13,9 +13,9 @@ namespace OOPTeamwork.Core
         {
             switch (level)
             {
-                case (int)LevelType.MultiPlayer:
-                    return new FirstLevel(GameField.Instance, new ConsoleWriterProvider(), new ConsoleReaderProvider());
                 case (int)LevelType.SinglePlayer:
+                    return new FirstLevel(GameField.Instance, new ConsoleWriterProvider(), new ConsoleReaderProvider());
+                case (int)LevelType.MultiPlayer:
                     return new SecondLevel(GameField.Instance, new ConsoleWriterProvider(), new ConsoleReaderProvider());
                 default: throw new InvalidLevelSelectException("Incorect level selection");
             }

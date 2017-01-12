@@ -1,17 +1,17 @@
 ﻿using System;
 using OOPTeamwork.Core;
 using OOPTeamwork.Core.Contracts;
-using OOPTeamwork.Models.Contracts;
 using OOPTeamwork.Models.GameAbstracts;
 using OOPTeamwork.Models.Players;
+using OOPTeamwork.Common;
 
 namespace OOPTeamwork.Models.Levels
 {
     public class SecondLevel : Level
     {
-        private readonly ManualPlayer firstPlayer = new ManualPlayer(Constants.FirstPlayerIndex, Constants.FirstPlayerSymol);
+        private readonly EnemyLogic firstPlayer = new EnemyLogic(Constants.FirstPlayerIndex, Constants.FirstPlayerSymbol);
 
-        private readonly EnemyLogic secondPlayer = new EnemyLogic(Constants.SecondPlayerIndex, Constants.SecondPlayerSymbol);
+        private readonly ManualPlayer secondPlayer = new ManualPlayer(Constants.SecondPlayerIndex, Constants.SecondPlayerSymbol);
 
         private int player = 1;
 
