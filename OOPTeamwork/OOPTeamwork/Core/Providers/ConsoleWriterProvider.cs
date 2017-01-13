@@ -10,6 +10,11 @@ namespace OOPTeamwork.Core.Providers
             Console.Write(message);
         }
 
+        public void Write(char message)
+        {
+            Console.Write(message);
+        }
+
         public void WriteLine(string message)
         {
             Console.WriteLine(message);
@@ -17,7 +22,7 @@ namespace OOPTeamwork.Core.Providers
 
         public void ChangeColor(ConsoleColor color)
         {
-            Console.BackgroundColor = color;
+            Console.ForegroundColor = color;
         }
 
         public void Clear()

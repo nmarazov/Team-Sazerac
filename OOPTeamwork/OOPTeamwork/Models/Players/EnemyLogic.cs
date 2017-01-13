@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using OOPTeamwork.Models.Contracts;
-using OOPTeamwork.Models.GameAbstracts;
 using System.Threading;
 using OOPTeamwork.Common;
+using OOPTeamwork.Core;
+using OOPTeamwork.Models.Contracts;
+using OOPTeamwork.Models.GameAbstracts;
 
-namespace OOPTeamwork.Core
+namespace OOPTeamwork.Models.Players
 {
     public class EnemyLogic : Player, IEnemy
     {

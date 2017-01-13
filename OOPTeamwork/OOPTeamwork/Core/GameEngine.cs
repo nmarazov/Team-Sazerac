@@ -18,6 +18,8 @@ namespace OOPTeamwork.Core
         public void StartGame()
         {
             this.writer.WriteLine("Enter Level");
+            this.writer.WriteLine("1-Multiplayer");
+            this.writer.WriteLine("2-Singleplayer");
             var inputLevel = int.Parse(this.reader.ReadLine());
             var selectedLevel = this.levelFactory.GetLevel(inputLevel);
             

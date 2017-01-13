@@ -31,9 +31,8 @@ namespace OOPTeamwork.Models.Levels
             {
                 this.player = 1;
                 this.firstPlayer.PlayerNextMove();
-
-                this.Writer.Clear();
-                this.Writer.WriteLine(this.GameField.PrintGameField());
+                
+                PrintGameField(this.GameField.PrintGameField());
 
                 this.flag = GameLogic.CheckForWinner();
                 this.CheckWhoIsTheWinner(this.flag);
@@ -46,8 +45,7 @@ namespace OOPTeamwork.Models.Levels
                 this.secondPlayer.PlayerNextMove();
                 this.player++;
 
-                this.Writer.Clear();
-                this.Writer.WriteLine(this.GameField.PrintGameField());
+                PrintGameField(this.GameField.PrintGameField());
 
                 GameLogic.CheckForWinner();
                 this.flag = GameLogic.CheckForWinner();

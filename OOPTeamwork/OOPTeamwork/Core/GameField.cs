@@ -54,7 +54,6 @@ namespace OOPTeamwork.Core
             result.AppendLine($"  {InputSelection[0]}  |  {InputSelection[1]}  |  {InputSelection[2]}");
             result.AppendLine("     |     |      ");
             result.AppendLine();
-
             return result.ToString();
         }
     }
