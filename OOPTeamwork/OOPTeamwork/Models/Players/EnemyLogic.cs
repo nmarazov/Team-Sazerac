@@ -11,7 +11,7 @@ namespace OOPTeamwork.Models.Players
 {
     public class EnemyLogic : Player, IEnemy
     {
-        private readonly ICollection<int> computerMoves = new List<int>();
+        private readonly ICollection<int> computerMoves;
 
         private int position;
 
@@ -33,8 +33,7 @@ namespace OOPTeamwork.Models.Players
                 this.position = value;
             }
         }
-
-
+        
         ICollection<int> IEnemy.ComputerMoves
         {
             get
@@ -49,559 +48,464 @@ namespace OOPTeamwork.Models.Players
 
             Thread.Sleep(1500);
  
-            if (computerMoves.Count == 0)
-
+            if (this.computerMoves.Count == 0)
             {
                 this.Position = Constants.InitialPositionEnemy;
 
-                if (GameLogic.CheckIfPositionIsTaken(Position + 1) == false)
+                if (GameLogic.CheckIfPositionIsTaken(this.Position + 1) == false)
                 {
-                    GameField.Instance.InputSelection[Position] = Constants.FirstPlayerSymbol;
+                    GameField.Instance.InputSelection[this.Position] = Constants.FirstPlayerSymbol;
                 }
                 else
                 {
-                    GameField.Instance.InputSelection[Position + 1] = Constants.FirstPlayerSymbol;
+                    GameField.Instance.InputSelection[this.Position + 1] = Constants.FirstPlayerSymbol;
                 }
-                computerMoves.Add(Position);
+
+                this.computerMoves.Add(this.Position);
             }
-            else if (computerMoves.Count() > 0)
+            else if (this.computerMoves.Count() > 0)
             {
-                Position = computerMoves.Last();
+                this.Position = this.computerMoves.Last();
 
-                if (computerMoves.Last() == 0)
+                if (this.computerMoves.Last() == 0)
                 {
-                    if (GameLogic.CheckIfPositionIsTaken(Position + 2) == false &&
-                        (GameLogic.CheckIfPositionIsTaken(Position + 3) == false ||
-                         GameField.Instance.InputSelection[Position + 2] == Constants.FirstPlayerSymbol))
+                    if (GameLogic.CheckIfPositionIsTaken(this.Position + 2) == false &&
+                        (GameLogic.CheckIfPositionIsTaken(this.Position + 3) == false ||
+                         GameField.Instance.InputSelection[this.Position + 2] == Constants.FirstPlayerSymbol))
                     {
-                        GameField.Instance.InputSelection[Position + 1] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 1);
-
+                        GameField.Instance.InputSelection[this.Position + 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 1);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 5) == false &&
-                             (GameLogic.CheckIfPositionIsTaken(Position + 9) == false ||
-                              GameField.Instance.InputSelection[Position + 8] == Constants.FirstPlayerSymbol))
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 5) == false &&
+                             (GameLogic.CheckIfPositionIsTaken(this.Position + 9) == false ||
+                              GameField.Instance.InputSelection[this.Position + 8] == Constants.FirstPlayerSymbol))
                     {
-                        GameField.Instance.InputSelection[Position + 4] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 4);
+                        GameField.Instance.InputSelection[this.Position + 4] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 4);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 4) == false &&
-                             (GameLogic.CheckIfPositionIsTaken(Position + 7) == false ||
-                              GameField.Instance.InputSelection[Position + 6] == Constants.FirstPlayerSymbol))
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 4) == false &&
+                             (GameLogic.CheckIfPositionIsTaken(this.Position + 7) == false ||
+                              GameField.Instance.InputSelection[this.Position + 6] == Constants.FirstPlayerSymbol))
                     {
-                        GameField.Instance.InputSelection[Position + 3] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 3);
+                        GameField.Instance.InputSelection[this.Position + 3] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 3);
                     }
-
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 3) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 3) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position + 2] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 2);
-
+                        GameField.Instance.InputSelection[this.Position + 2] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 2);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 7) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 7) == false)
                     {
-                        GameField.Instance.InputSelection[Position + 6] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 6);
+                        GameField.Instance.InputSelection[this.Position + 6] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 6);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 9) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 9) == false)
                     {
-                        GameField.Instance.InputSelection[Position + 8] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 8);
+                        GameField.Instance.InputSelection[this.Position + 8] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 8);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 6) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 6) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position + 5] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 5);
-
+                        GameField.Instance.InputSelection[this.Position + 5] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 5);
                     }
-
                     else if (GameLogic.CheckIfPositionIsTaken(8) == false)
                     {
                         GameField.Instance.InputSelection[7] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 7);
+                        this.computerMoves.Add(this.computerMoves.Last() + 7);
                     }
-
                 }
-                else if (computerMoves.Last() == 1)
+                else if (this.computerMoves.Last() == 1)
                 {
-                    if (GameLogic.CheckIfPositionIsTaken(Position + 2) == false &&
-                        (GameLogic.CheckIfPositionIsTaken(Position) == false ||
-                         GameField.Instance.InputSelection[Position - 1] == Constants.FirstPlayerSymbol))
+                    if (GameLogic.CheckIfPositionIsTaken(this.Position + 2) == false &&
+                        (GameLogic.CheckIfPositionIsTaken(this.Position) == false ||
+                         GameField.Instance.InputSelection[this.Position - 1] == Constants.FirstPlayerSymbol))
                     {
-                        GameField.Instance.InputSelection[Position + 1] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 1);
-
+                        GameField.Instance.InputSelection[this.Position + 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 1);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 4) == false &&
-                             (GameLogic.CheckIfPositionIsTaken(Position + 7) == false ||
-                              GameField.Instance.InputSelection[Position + 6] == Constants.FirstPlayerSymbol))
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 4) == false &&
+                             (GameLogic.CheckIfPositionIsTaken(this.Position + 7) == false ||
+                              GameField.Instance.InputSelection[this.Position + 6] == Constants.FirstPlayerSymbol))
                     {
-                        GameField.Instance.InputSelection[Position + 3] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 3);
+                        GameField.Instance.InputSelection[this.Position + 3] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 3);
                     }
                     else if (GameLogic.CheckIfPositionIsTaken(7) == false)
                     {
                         GameField.Instance.InputSelection[6] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 6);
+                        this.computerMoves.Add(this.computerMoves.Last() + 6);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position - 1] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 1);
-
+                        GameField.Instance.InputSelection[this.Position - 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 1);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 3) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 3) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position + 2] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 2);
-
+                        GameField.Instance.InputSelection[this.Position + 2] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 2);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 5) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 5) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position + 4] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 4);
-
+                        GameField.Instance.InputSelection[this.Position + 4] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 4);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 7) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 7) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position + 6] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 6);
-
+                        GameField.Instance.InputSelection[this.Position + 6] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 6);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 6) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 6) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position + 5] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 5);
-
+                        GameField.Instance.InputSelection[this.Position + 5] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 5);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 8) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 8) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position + 7] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 7);
-
-                    }
-
-                }
-                else if (computerMoves.Last() == 2)
-                {
-                    if (GameLogic.CheckIfPositionIsTaken(Position + 4) == false &&
-                        (GameLogic.CheckIfPositionIsTaken(Position + 7) == false ||
-                         GameField.Instance.InputSelection[Position + 6] == Constants.FirstPlayerSymbol))
-                    {
-
-                        GameField.Instance.InputSelection[Position + 3] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 3);
-
-                    }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 3) == false &&
-                             (GameLogic.CheckIfPositionIsTaken(Position + 5) == false ||
-                              GameField.Instance.InputSelection[Position + 4] == Constants.FirstPlayerSymbol))
-                    {
-                        GameField.Instance.InputSelection[Position + 2] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 2);
-                    }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position) == false &&
-                             (GameLogic.CheckIfPositionIsTaken(Position - 1) == false ||
-                              GameField.Instance.InputSelection[Position - 2] == Constants.FirstPlayerSymbol))
-                    {
-                        GameField.Instance.InputSelection[Position - 1] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 1);
-                    }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 5) == false)
-                    {
-
-                        GameField.Instance.InputSelection[Position + 4] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 4);
-                    }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 7) == false)
-                    {
-
-                        GameField.Instance.InputSelection[Position + 6] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 6);
-
-                    }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 3) == false)
-                    {
-
-                        GameField.Instance.InputSelection[Position - 1] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 2);
-
-                    }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 2) == false)
-                    {
-
-                        GameField.Instance.InputSelection[Position + 1] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 1);
-                    }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 6) == false)
-                    {
-
-                        GameField.Instance.InputSelection[Position + 5] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 5);
-
-                    }
-
-                }
-                else if (computerMoves.Last() == 3)
-                {
-                    if (GameLogic.CheckIfPositionIsTaken(Position + 2) == false &&
-                        (GameLogic.CheckIfPositionIsTaken(Position + 3) == false ||
-                         GameField.Instance.InputSelection[Position + 2] == Constants.FirstPlayerSymbol))
-                    {
-                        GameField.Instance.InputSelection[Position + 1] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 1);
-                    }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 4) == false &&
-                             (GameLogic.CheckIfPositionIsTaken(Position - 2) == false ||
-                              GameField.Instance.InputSelection[Position - 3] == Constants.FirstPlayerSymbol))
-                    {
-                        GameField.Instance.InputSelection[Position + 3] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 3);
-                    }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 3) == false)
-                    {
-
-                        GameField.Instance.InputSelection[Position + 2] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 2);
-
-                    }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 2) == false)
-                    {
-
-                        GameField.Instance.InputSelection[Position - 3] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 3);
-
-                    }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 5) == false)
-                    {
-
-                        GameField.Instance.InputSelection[Position + 4] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 4);
-
-                    }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 1) == false)
-                    {
-
-                        GameField.Instance.InputSelection[Position - 2] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 2);
-
-                    }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position) == false)
-                    {
-
-                        GameField.Instance.InputSelection[Position - 1] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 1);
-
-                    }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 6) == false)
-                    {
-
-                        GameField.Instance.InputSelection[Position + 5] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 5);
-
-                    }
-
-
-                }
-                else if (computerMoves.Last() == 4)
-                {
-                    if (GameLogic.CheckIfPositionIsTaken(Position + 2) == false &&
-                        (GameLogic.CheckIfPositionIsTaken(Position) == false ||//!!!!
-                         GameField.Instance.InputSelection[Position - 1] == Constants.FirstPlayerSymbol))
-                    {
-                        GameField.Instance.InputSelection[Position + 1] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 1);
-
-                    }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 4) == false &&
-                             (GameLogic.CheckIfPositionIsTaken(Position - 2) == false ||
-                              GameField.Instance.InputSelection[Position - 3] == Constants.FirstPlayerSymbol))
-                    {
-                        GameField.Instance.InputSelection[Position + 3] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 3);
-                    }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 5) == false &&
-                             (GameLogic.CheckIfPositionIsTaken(Position - 3) == false ||
-                              GameField.Instance.InputSelection[Position - 4] == Constants.FirstPlayerSymbol))
-                    {
-                        GameField.Instance.InputSelection[Position + 4] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 4);
-                    }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position) == false)
-                    {
-
-                        GameField.Instance.InputSelection[Position - 1] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 1);
-
-                    }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 2) == false)
-                    {
-
-                        GameField.Instance.InputSelection[Position - 3] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 3);
-                    }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 3) == false)
-                    {
-
-                        GameField.Instance.InputSelection[Position - 4] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 4);
-                    }
-
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 1) == false)
-                    {
-
-                        GameField.Instance.InputSelection[Position - 2] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 2);
-
-                    }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 3) == false)
-                    {
-
-                        GameField.Instance.InputSelection[Position + 2] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 2);
-
-
+                        GameField.Instance.InputSelection[this.Position + 7] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 7);
                     }
                 }
-                else if (computerMoves.Last() == 5)
+                else if (this.computerMoves.Last() == 2)
                 {
-                    if (GameLogic.CheckIfPositionIsTaken(Position) == false &&
-                        (GameLogic.CheckIfPositionIsTaken(Position - 1) == false ||
-                         GameField.Instance.InputSelection[Position - 2] == Constants.FirstPlayerSymbol))
+                    if (GameLogic.CheckIfPositionIsTaken(this.Position + 4) == false &&
+                        (GameLogic.CheckIfPositionIsTaken(this.Position + 7) == false ||
+                         GameField.Instance.InputSelection[this.Position + 6] == Constants.FirstPlayerSymbol))
                     {
-                        GameField.Instance.InputSelection[Position - 1] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(Position - 1);
-
+                        GameField.Instance.InputSelection[this.Position + 3] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 3);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 4) == false &&
-                             (GameLogic.CheckIfPositionIsTaken(Position - 2) == false ||
-                              GameField.Instance.InputSelection[Position - 3] == Constants.FirstPlayerSymbol))
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 3) == false &&
+                             (GameLogic.CheckIfPositionIsTaken(this.Position + 5) == false ||
+                              GameField.Instance.InputSelection[this.Position + 4] == Constants.FirstPlayerSymbol))
                     {
-                        GameField.Instance.InputSelection[Position + 3] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 3);
+                        GameField.Instance.InputSelection[this.Position + 2] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 2);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 1) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position) == false &&
+                             (GameLogic.CheckIfPositionIsTaken(this.Position - 1) == false ||
+                              GameField.Instance.InputSelection[this.Position - 2] == Constants.FirstPlayerSymbol))
                     {
-
-                        GameField.Instance.InputSelection[Position - 2] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 2);
-
+                        GameField.Instance.InputSelection[this.Position - 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 1);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 2) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 5) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position - 3] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 3);
+                        GameField.Instance.InputSelection[this.Position + 4] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 4);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 3) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 7) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position + 2] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 2);
-
+                        GameField.Instance.InputSelection[this.Position + 6] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 6);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 2) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 3) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position + 1] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 1);
-
+                        GameField.Instance.InputSelection[this.Position - 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 2);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 4) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 2) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position - 5] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 5);
+                        GameField.Instance.InputSelection[this.Position + 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 1);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 3) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 6) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position - 4] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 4);
+                        GameField.Instance.InputSelection[this.Position + 5] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 5);
                     }
-
                 }
-                else if (computerMoves.Last() == 6)
+                else if (this.computerMoves.Last() == 3)
                 {
-                    if (GameLogic.CheckIfPositionIsTaken(Position + 2) == false &&
-                        (GameLogic.CheckIfPositionIsTaken(Position + 3) == false ||
-                         GameField.Instance.InputSelection[Position + 2] == Constants.FirstPlayerSymbol))
+                    if (GameLogic.CheckIfPositionIsTaken(this.Position + 2) == false &&
+                        (GameLogic.CheckIfPositionIsTaken(this.Position + 3) == false ||
+                         GameField.Instance.InputSelection[this.Position + 2] == Constants.FirstPlayerSymbol))
                     {
-                        GameField.Instance.InputSelection[Position + 1] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 1);
-
+                        GameField.Instance.InputSelection[this.Position + 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 1);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 1) == false &&
-                             (GameLogic.CheckIfPositionIsTaken(Position - 3) == false ||
-                              GameField.Instance.InputSelection[Position - 4] == Constants.FirstPlayerSymbol))
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 4) == false &&
+                             (GameLogic.CheckIfPositionIsTaken(this.Position - 2) == false ||
+                              GameField.Instance.InputSelection[this.Position - 3] == Constants.FirstPlayerSymbol))
                     {
-                        GameField.Instance.InputSelection[Position - 2] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 2);
+                        GameField.Instance.InputSelection[this.Position + 3] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 3);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 5) == false &&
-                             (GameLogic.CheckIfPositionIsTaken(Position - 2) == false ||
-                              GameField.Instance.InputSelection[Position - 3] == Constants.FirstPlayerSymbol))
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 3) == false)
                     {
-                        GameField.Instance.InputSelection[Position - 6] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 6);
+                        GameField.Instance.InputSelection[this.Position + 2] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 2);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 4) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 2) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position + 3] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 3);
+                        GameField.Instance.InputSelection[this.Position - 3] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 3);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position + 3) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 5) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position + 2] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 2);
+                        GameField.Instance.InputSelection[this.Position + 4] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 4);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 3) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 1) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position - 4] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 4);
+                        GameField.Instance.InputSelection[this.Position - 2] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 2);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 4) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position - 5] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 5);
+                        GameField.Instance.InputSelection[this.Position - 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 1);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 6) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position - 1] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 1);
+                        GameField.Instance.InputSelection[this.Position + 5] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 5);
                     }
-
                 }
-                else if (computerMoves.Last() == 7)
+                else if (this.computerMoves.Last() == 4)
                 {
-                    if (GameLogic.CheckIfPositionIsTaken(Position + 2) == false &&
-                        (GameLogic.CheckIfPositionIsTaken(Position) == false ||
-                         GameField.Instance.InputSelection[Position - 1] == Constants.FirstPlayerSymbol))
+                    if (GameLogic.CheckIfPositionIsTaken(this.Position + 2) == false &&
+                        (GameLogic.CheckIfPositionIsTaken(this.Position) == false || //!!!!
+                         GameField.Instance.InputSelection[this.Position - 1] == Constants.FirstPlayerSymbol))
                     {
-                        GameField.Instance.InputSelection[Position + 1] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() + 1);
-
+                        GameField.Instance.InputSelection[this.Position + 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 1);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 2) == false &&
-                             (GameLogic.CheckIfPositionIsTaken(Position - 5) == false ||
-                              GameField.Instance.InputSelection[Position - 6] == Constants.FirstPlayerSymbol))
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 4) == false &&
+                             (GameLogic.CheckIfPositionIsTaken(this.Position - 2) == false ||
+                              GameField.Instance.InputSelection[this.Position - 3] == Constants.FirstPlayerSymbol))
                     {
-                        GameField.Instance.InputSelection[Position - 3] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 3);
+                        GameField.Instance.InputSelection[this.Position + 3] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 3);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 5) == false &&
+                             (GameLogic.CheckIfPositionIsTaken(this.Position - 3) == false ||
+                              GameField.Instance.InputSelection[this.Position - 4] == Constants.FirstPlayerSymbol))
                     {
-
-                        GameField.Instance.InputSelection[Position - 1] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 1);
+                        GameField.Instance.InputSelection[this.Position + 4] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 4);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 5) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position - 6] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 6);
+                        GameField.Instance.InputSelection[this.Position - 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 1);
                     }
-
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 4) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 2) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position - 5] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 5);
+                        GameField.Instance.InputSelection[this.Position - 3] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 3);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 3) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 3) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position - 4] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 4);
+                        GameField.Instance.InputSelection[this.Position - 4] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 4);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 6) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 1) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position - 7] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 7);
+                        GameField.Instance.InputSelection[this.Position - 2] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 2);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 1) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 3) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position - 2] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 2);
-
+                        GameField.Instance.InputSelection[this.Position + 2] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 2);
                     }
-
                 }
-                else if (computerMoves.Last() == 8)
+                else if (this.computerMoves.Last() == 5)
                 {
-                    if (GameLogic.CheckIfPositionIsTaken(Position) == false &&
-                        (GameLogic.CheckIfPositionIsTaken(Position - 1) == false ||
-                         GameField.Instance.InputSelection[Position - 2] == Constants.FirstPlayerSymbol))
+                    if (GameLogic.CheckIfPositionIsTaken(this.Position) == false &&
+                        (GameLogic.CheckIfPositionIsTaken(this.Position - 1) == false ||
+                         GameField.Instance.InputSelection[this.Position - 2] == Constants.FirstPlayerSymbol))
                     {
-                        GameField.Instance.InputSelection[Position - 1] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 1);
-
+                        GameField.Instance.InputSelection[this.Position - 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.Position - 1);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 3) == false &&
-                             (GameLogic.CheckIfPositionIsTaken(Position - 7) == false ||
-                              GameField.Instance.InputSelection[Position - 8] == Constants.FirstPlayerSymbol))
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 4) == false &&
+                             (GameLogic.CheckIfPositionIsTaken(this.Position - 2) == false ||
+                              GameField.Instance.InputSelection[this.Position - 3] == Constants.FirstPlayerSymbol))
                     {
-                        GameField.Instance.InputSelection[Position - 4] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 4);
+                        GameField.Instance.InputSelection[this.Position + 3] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 3);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 2) == false &&
-                             (GameLogic.CheckIfPositionIsTaken(Position - 5) == false ||
-                              GameField.Instance.InputSelection[Position - 6] == Constants.FirstPlayerSymbol))
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 1) == false)
                     {
-                        GameField.Instance.InputSelection[Position - 3] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 3);
+                        GameField.Instance.InputSelection[this.Position - 2] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 2);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 1) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 2) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position - 2] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 2);
-
+                        GameField.Instance.InputSelection[this.Position - 3] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 3);
                     }
-
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 5) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 3) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position - 6] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 6);
+                        GameField.Instance.InputSelection[this.Position + 2] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 2);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 2) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 2) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position - 3] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 3);
+                        GameField.Instance.InputSelection[this.Position + 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 1);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 4) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 4) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position - 5] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 5);
+                        GameField.Instance.InputSelection[this.Position - 5] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 5);
                     }
-                    else if (GameLogic.CheckIfPositionIsTaken(Position - 6) == false)
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 3) == false)
                     {
-
-                        GameField.Instance.InputSelection[Position - 7] = Constants.FirstPlayerSymbol;
-                        computerMoves.Add(computerMoves.Last() - 7);
+                        GameField.Instance.InputSelection[this.Position - 4] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 4);
+                    }
+                }
+                else if (this.computerMoves.Last() == 6)
+                {
+                    if (GameLogic.CheckIfPositionIsTaken(this.Position + 2) == false &&
+                        (GameLogic.CheckIfPositionIsTaken(this.Position + 3) == false ||
+                         GameField.Instance.InputSelection[this.Position + 2] == Constants.FirstPlayerSymbol))
+                    {
+                        GameField.Instance.InputSelection[this.Position + 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 1);
+                    }
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 1) == false &&
+                             (GameLogic.CheckIfPositionIsTaken(this.Position - 3) == false ||
+                              GameField.Instance.InputSelection[this.Position - 4] == Constants.FirstPlayerSymbol))
+                    {
+                        GameField.Instance.InputSelection[this.Position - 2] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 2);
+                    }
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 5) == false &&
+                             (GameLogic.CheckIfPositionIsTaken(this.Position - 2) == false ||
+                              GameField.Instance.InputSelection[this.Position - 3] == Constants.FirstPlayerSymbol))
+                    {
+                        GameField.Instance.InputSelection[this.Position - 6] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 6);
+                    }
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 4) == false)
+                    {
+                        GameField.Instance.InputSelection[this.Position + 3] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 3);
+                    }
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position + 3) == false)
+                    {
+                        GameField.Instance.InputSelection[this.Position + 2] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 2);
+                    }
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 3) == false)
+                    {
+                        GameField.Instance.InputSelection[this.Position - 4] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 4);
+                    }
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 4) == false)
+                    {
+                        GameField.Instance.InputSelection[this.Position - 5] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 5);
+                    }
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position) == false)
+                    {
+                        GameField.Instance.InputSelection[this.Position - 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 1);
+                    }
+                }
+                else if (this.computerMoves.Last() == 7)
+                {
+                    if (GameLogic.CheckIfPositionIsTaken(this.Position + 2) == false &&
+                        (GameLogic.CheckIfPositionIsTaken(this.Position) == false ||
+                         GameField.Instance.InputSelection[this.Position - 1] == Constants.FirstPlayerSymbol))
+                    {
+                        GameField.Instance.InputSelection[this.Position + 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() + 1);
+                    }
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 2) == false &&
+                             (GameLogic.CheckIfPositionIsTaken(this.Position - 5) == false ||
+                              GameField.Instance.InputSelection[this.Position - 6] == Constants.FirstPlayerSymbol))
+                    {
+                        GameField.Instance.InputSelection[this.Position - 3] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 3);
+                    }
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position) == false)
+                    {
+                        GameField.Instance.InputSelection[this.Position - 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 1);
+                    }
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 5) == false)
+                    {
+                        GameField.Instance.InputSelection[this.Position - 6] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 6);
+                    }
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 4) == false)
+                    {
+                        GameField.Instance.InputSelection[this.Position - 5] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 5);
+                    }
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 3) == false)
+                    {
+                        GameField.Instance.InputSelection[this.Position - 4] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 4);
+                    }
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 6) == false)
+                    {
+                        GameField.Instance.InputSelection[this.Position - 7] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 7);
+                    }
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 1) == false)
+                    {
+                        GameField.Instance.InputSelection[this.Position - 2] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 2);
+                    }
+                }
+                else if (this.computerMoves.Last() == 8)
+                {
+                    if (GameLogic.CheckIfPositionIsTaken(this.Position) == false &&
+                        (GameLogic.CheckIfPositionIsTaken(this.Position - 1) == false ||
+                         GameField.Instance.InputSelection[this.Position - 2] == Constants.FirstPlayerSymbol))
+                    {
+                        GameField.Instance.InputSelection[this.Position - 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 1);
+                    }
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 3) == false &&
+                             (GameLogic.CheckIfPositionIsTaken(this.Position - 7) == false ||
+                              GameField.Instance.InputSelection[this.Position - 8] == Constants.FirstPlayerSymbol))
+                    {
+                        GameField.Instance.InputSelection[this.Position - 4] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 4);
+                    }
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 2) == false &&
+                             (GameLogic.CheckIfPositionIsTaken(this.Position - 5) == false ||
+                              GameField.Instance.InputSelection[this.Position - 6] == Constants.FirstPlayerSymbol))
+                    {
+                        GameField.Instance.InputSelection[this.Position - 3] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 3);
+                    }
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 1) == false)
+                    {
+                        GameField.Instance.InputSelection[this.Position - 2] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 2);
+                    }
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 5) == false)
+                    {
+                        GameField.Instance.InputSelection[this.Position - 6] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 6);
+                    }
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 2) == false)
+                    {
+                        GameField.Instance.InputSelection[this.Position - 3] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 3);
+                    }
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 4) == false)
+                    {
+                        GameField.Instance.InputSelection[this.Position - 5] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 5);
+                    }
+                    else if (GameLogic.CheckIfPositionIsTaken(this.Position - 6) == false)
+                    {
+                        GameField.Instance.InputSelection[this.Position - 7] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(this.computerMoves.Last() - 7);
                     }
                 }
             }
         }
     }
 }
-

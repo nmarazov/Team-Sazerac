@@ -1,10 +1,10 @@
 ﻿using System;
 
+using OOPTeamwork.Common;
 using OOPTeamwork.Core;
 using OOPTeamwork.Core.Contracts;
 using OOPTeamwork.Models.GameAbstracts;
 using OOPTeamwork.Models.Players;
-using OOPTeamwork.Common;
 
 namespace OOPTeamwork.Models.Levels
 {
@@ -32,7 +32,7 @@ namespace OOPTeamwork.Models.Levels
                 this.player = 1;
                 this.firstPlayer.PlayerNextMove();
                 
-                PrintGameField(this.GameField.PrintGameField());
+                this.PrintGameField(this.GameField.PrintGameField());
 
                 this.flag = GameLogic.CheckForWinner();
                 this.CheckWhoIsTheWinner(this.flag);
@@ -45,7 +45,7 @@ namespace OOPTeamwork.Models.Levels
                 this.secondPlayer.PlayerNextMove();
                 this.player++;
 
-                PrintGameField(this.GameField.PrintGameField());
+                this.PrintGameField(this.GameField.PrintGameField());
 
                 GameLogic.CheckForWinner();
                 this.flag = GameLogic.CheckForWinner();
