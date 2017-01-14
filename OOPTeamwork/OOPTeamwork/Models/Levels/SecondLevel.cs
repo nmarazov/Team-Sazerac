@@ -10,7 +10,7 @@ namespace OOPTeamwork.Models.Levels
 {
     public class SecondLevel : Level
     {
-        private readonly EnemyLogic firstPlayer = new EnemyLogic(Constants.FirstPlayerIndex, Constants.FirstPlayerSymbol);
+        private readonly Enemy firstPlayer = new Enemy(Constants.FirstPlayerIndex, Constants.FirstPlayerSymbol);
 
         private readonly ManualPlayer secondPlayer = new ManualPlayer(Constants.SecondPlayerIndex, Constants.SecondPlayerSymbol);
 

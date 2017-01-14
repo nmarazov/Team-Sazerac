@@ -15,7 +15,7 @@ namespace OOPTeamwork.Core
         public int PlayerTwoNumOfWins
         {
             get { return playerTwoNumOfWins; }
-            private set { playerOneNumOfWins = value; }
+            private set { playerTwoNumOfWins = value; }
         }
 
         public void PlayerWin(int playerNum)

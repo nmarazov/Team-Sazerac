@@ -9,7 +9,7 @@ using OOPTeamwork.Models.GameAbstracts;
 
 namespace OOPTeamwork.Models.Players
 {
-    public class EnemyLogic : Player, IEnemy
+    public class Enemy : Player, IEnemy
     {
         private readonly ICollection<int> computerMoves;
 
@@ -17,7 +17,7 @@ namespace OOPTeamwork.Models.Players
         char X = Constants.FirstPlayerSymbol;
         char[] board = GameField.Instance.InputSelection;
 
-        public EnemyLogic(int playerIndex, char playerSymbol)
+        public Enemy(int playerIndex, char playerSymbol)
             : base(playerIndex, playerSymbol)
         {
             this.computerMoves = new List<int>();
