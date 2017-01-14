@@ -1,1 +1,7 @@
 E:\telerik\csharp\OOP\TeamWork\Team-Sazerac-master - Copy\Team-Sazerac-master\OOPTeamwork\OOPTeamwork\bin\Debug\OOPTeamwork.exe.config
+E:\Telerik\Team-Sazerac\OOPTeamwork\OOPTeamwork\bin\Debug\OOPTeamwork.exe.config
+E:\Telerik\Team-Sazerac\OOPTeamwork\OOPTeamwork\obj\Debug\OOPTeamwork.exe
+E:\Telerik\Team-Sazerac\OOPTeamwork\OOPTeamwork\obj\Debug\OOPTeamwork.pdb
+E:\Telerik\Team-Sazerac\OOPTeamwork\OOPTeamwork\obj\Debug\OOPTeamwork.csprojResolveAssemblyReference.cache
+E:\Telerik\Team-Sazerac\OOPTeamwork\OOPTeamwork\bin\Debug\OOPTeamwork.exe
+E:\Telerik\Team-Sazerac\OOPTeamwork\OOPTeamwork\bin\Debug\OOPTeamwork.pdb
