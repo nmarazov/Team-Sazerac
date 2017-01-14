@@ -16,16 +16,34 @@ namespace OOPTeamwork.Models.Players
         {
             Console.Write($"Player {this.PlayerIndex} select position: ");
 
-            var position = int.Parse(Console.ReadLine());
+            int position = 0;
 
-            if (GameLogic.IsPosTaken(position) == true)
+            try
             {
+                position = int.Parse(Console.ReadLine());
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
                 this.PlayerNextMove();
+            }
+
+
+            if (GameLogic.ChekIfThePositionExist(position))
+            {
+                if (GameLogic.CheckIfPositionIsTaken(position) == false)
+                {
+                    GameField.Instance.InputSelection[position - 1] = this.PlayerSymbol;
+                }
+                else
+                {
+                    this.PlayerNextMove();
+                }
             }
             else
             {
-                GameField.Instance.InputSelection[position - 1] = this.PlayerSymbol;
-            }
+                this.PlayerNextMove();
+            }                                    
         }
     }
 }
