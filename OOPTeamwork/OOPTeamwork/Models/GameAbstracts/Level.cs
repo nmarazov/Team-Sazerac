@@ -21,7 +21,7 @@ namespace OOPTeamwork.Models.GameAbstracts
 
         public abstract void StartLevel();
 
-        protected virtual void PrintGameField(string gameField)
+        public virtual void PrintGameField(string gameField)
         {
             this.Writer.Clear();
             foreach (char c in this.GameField.PrintGameField())

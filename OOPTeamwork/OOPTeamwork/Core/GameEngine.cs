@@ -1,5 +1,4 @@
 ﻿using System;
-using OOPTeamwork.Core;
 using OOPTeamwork.Core.Contracts;
 using OOPTeamwork.Models.Contracts;
 
@@ -48,34 +47,15 @@ namespace OOPTeamwork.Core
             }
             finally
             {
-                GameField.Instance.ClearGameField();
-                this.StartGame();
+                this.writer.WriteLine("Do you want to play more? Y/N");
+                var playMore = this.reader.ReadLine();
+                if (playMore.ToLower() == "y")
+                {
+                    GameField.Instance.ClearGameField();
+                    this.StartGame();
+                }
             }
             
         }
-
-        //public void AnotherGame()
-        //{
-        //    this.writer.WriteLine("Do you want to start another game?\n1 - Yes. let's go!\n2- No, I had enough!");
-        //    var choice = int.Parse(this.reader.ReadLine());
-        //    System.Console.Clear();
-        //    switch (choice)
-        //    {
-        //        case 1:
-        //            GameField.GameFieldClear();
-        //            var levelFactory = new LevelFactory();
-        //            var engine = new GameEngine(levelFactory, reader, writer);
-        //            StartGame();
-        //            AnotherGame();
-        //            break;
-        //        case 2:
-        //            this.writer.WriteLine("See you next time!");
-        //            break;
-        //        default:
-        //            this.writer.WriteLine("You must choose between \"1\" and \"2\"!");
-        //            AnotherGame();
-        //            break;
-        //    }
-        //}
     }
 }

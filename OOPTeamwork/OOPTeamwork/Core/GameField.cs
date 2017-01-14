@@ -1,12 +1,12 @@
-﻿using System.Text;
-using OOPTeamwork.Core;
+﻿using System;
+using System.Text;
 using OOPTeamwork.Core.Contracts;
 
 namespace OOPTeamwork.Core
 {
     public class GameField : IGameField
     {
-        private static readonly char[] InitialField = new char[]{ '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+        private static readonly char[] InitialField = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 
         private static GameField instance;
 
@@ -14,7 +14,7 @@ namespace OOPTeamwork.Core
 
         private GameField()
         {
-            this.inputSelection = InitialField;
+            this.inputSelection = new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
         }
 
         public static GameField Instance
@@ -45,7 +45,8 @@ namespace OOPTeamwork.Core
 
         public void ClearGameField()
         {
-            InitialField.CopyTo(this.InputSelection, 0);
+            Array.Copy(InitialField, InputSelection, 9);
+
         }
 
         public string PrintGameField()

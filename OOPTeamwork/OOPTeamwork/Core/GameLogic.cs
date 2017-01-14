@@ -22,7 +22,10 @@ namespace OOPTeamwork.Core
         
         public static bool ChekIfThePositionExist(int position)
         {
-            if (position >= 1 && position <= 9) { return true; }
+            if (position >= 1 && position <= 9)
+            {
+                return true;
+            }
             else
             {
                 Console.WriteLine("The positions are from 1 to 9.");

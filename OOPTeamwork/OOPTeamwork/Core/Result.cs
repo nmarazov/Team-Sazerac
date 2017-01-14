@@ -29,6 +29,7 @@ namespace OOPTeamwork.Core
                 playerTwoNumOfWins++;
             }
         }
+
         public void PrintResult()
         {
             Console.WriteLine("The result is:");
