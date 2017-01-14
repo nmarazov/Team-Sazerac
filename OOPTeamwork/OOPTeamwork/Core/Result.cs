@@ -36,7 +36,7 @@ namespace OOPTeamwork.Core
             Console.WriteLine(string.Format("Player 1: {0} wins", PlayerOneNumOfWins));
             Console.ForegroundColor = System.ConsoleColor.Blue;
             Console.WriteLine(string.Format("Player 2: {0} wins", PlayerTwoNumOfWins));
-            Console.ForegroundColor = default(System.ConsoleColor);
+            Console.ForegroundColor = ConsoleColor.Gray;
         }
         public void ClearResult()
         {
