@@ -13,8 +13,7 @@ namespace OOPTeamwork
 
             var engine = new GameEngine(levelFactory, reader, writer);
 
-            engine.StartGame();
-            engine.AnotherGame();                       
+            engine.StartGame();                      
         }
     }
 }

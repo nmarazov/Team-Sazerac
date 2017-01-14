@@ -31,7 +31,7 @@ namespace OOPTeamwork.Models.Players
 
             if (GameLogic.ChekIfThePositionExist(position))
             {
-                if (GameLogic.CheckIfPositionIsTaken(position) == false)
+                if (GameLogic.IsPosTaken(position) == false)
                 {
                     GameField.Instance.InputSelection[position - 1] = this.PlayerSymbol;
                 }
