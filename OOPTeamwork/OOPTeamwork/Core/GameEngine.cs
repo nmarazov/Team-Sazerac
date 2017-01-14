@@ -18,13 +18,22 @@ namespace OOPTeamwork.Core
 
         public void StartGame()
         {
+             int inputLevel = 0;
+            ILevel selectedLevel = null;
             this.writer.WriteLine("Enter Level");
             this.writer.WriteLine("1-Multiplayer");
-            this.writer.WriteLine("2-Singleplayer");
-            var inputLevel = int.Parse(this.reader.ReadLine());
-            var selectedLevel = this.levelFactory.GetLevel(inputLevel);
-            
-            selectedLevel.StartLevel();
+            this.writer.WriteLine("2-Singleplayer");                               
+            try
+            {
+                inputLevel = int.Parse(this.reader.ReadLine());
+                selectedLevel = this.levelFactory.GetLevel(inputLevel);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                this.StartGame();
+            }                            
+            selectedLevel.StartLevel();           
         }
 
         public void AnotherGame()
