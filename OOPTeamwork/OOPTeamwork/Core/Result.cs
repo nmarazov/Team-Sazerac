@@ -33,9 +33,9 @@ namespace OOPTeamwork.Core
         {
             Console.WriteLine("The result is:");
             Console.ForegroundColor = System.ConsoleColor.Red;
-            Console.WriteLine(string.Format("Player 1: {0} wins", PlayerOneNumOfWins));
+            Console.WriteLine("Player 1: {0} wins", PlayerOneNumOfWins);
             Console.ForegroundColor = System.ConsoleColor.Blue;
-            Console.WriteLine(string.Format("Player 2: {0} wins", PlayerTwoNumOfWins));
+            Console.WriteLine("Player 2: {0} wins", PlayerTwoNumOfWins);
             Console.ForegroundColor = ConsoleColor.Gray;
         }
         public void ClearResult()
