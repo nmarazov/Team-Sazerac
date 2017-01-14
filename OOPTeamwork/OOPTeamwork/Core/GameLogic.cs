@@ -6,7 +6,7 @@ namespace OOPTeamwork.Core
 {
     public class GameLogic
     {       
-        public static bool CheckIfPositionIsTaken(int position)
+        public static bool IsPosTaken(int position)
         {
             if (GameField.Instance.InputSelection[position - 1] == Constants.FirstPlayerSymbol || GameField.Instance.InputSelection[position - 1] == Constants.SecondPlayerSymbol)
             {

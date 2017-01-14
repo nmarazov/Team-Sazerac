@@ -18,7 +18,7 @@ namespace OOPTeamwork.Models.Players
 
             var position = int.Parse(Console.ReadLine());
 
-            if (GameLogic.CheckIfPositionIsTaken(position) == true)
+            if (GameLogic.IsPosTaken(position) == true)
             {
                 this.PlayerNextMove();
             }

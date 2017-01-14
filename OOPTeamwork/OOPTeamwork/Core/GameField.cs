@@ -14,6 +14,11 @@ namespace OOPTeamwork.Core
             this.inputSelection = new[] { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
         }
 
+        public static void GameFieldClear()
+        {
+            instance.inputSelection = new[] { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+        }
+
         public static GameField Instance
         {
             get
