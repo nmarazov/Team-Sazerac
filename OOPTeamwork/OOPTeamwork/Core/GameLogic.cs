@@ -20,6 +20,16 @@ namespace OOPTeamwork.Core
             }             
         }
         
+        public static bool ChekIfThePositionExist(int position)
+        {
+            if (position >= 1 && position <= 9) { return true; }
+            else
+            {
+                Console.WriteLine("The positions are from 1 to 9.");
+                return false;
+            }
+        }
+        
         // Checks if there is a winning condition or if the result is draw, if none of the conditions are satisfied, the game continues.    
         public static int CheckForWinner()
         {
