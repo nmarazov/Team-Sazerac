@@ -49,6 +49,14 @@ namespace OOPTeamwork.Core
             }
             finally
             {
+                 Result.PrintResult();
+                this.writer.WriteLine("Do you want to clear the results? Y/N");
+                var clear = this.reader.ReadLine();
+                if(clear.ToLower() == "y")
+                {
+                    Result.ClearResult();
+                    this.writer.WriteLine("Result is cleared!");
+                }
                 this.writer.WriteLine("Do you want to play more? Y/N");
                 var playMore = this.reader.ReadLine();
                 if (playMore.ToLower() == "y")
