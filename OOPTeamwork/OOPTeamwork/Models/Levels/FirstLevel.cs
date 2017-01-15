@@ -68,6 +68,9 @@ namespace OOPTeamwork.Models.Levels
                 }
                
                 Console.WriteLine($"Player { winningPlayer } wins!");
+                
+                Result.PlayerWin(winningPlayer);
+                
             }
             else if (this.flag == -1)
             {
