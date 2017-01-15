@@ -1,17 +1,38 @@
 using System;
+using System.Text;
 
 namespace OOPTeamwork.Core
 {
     public class Result
     {
+        private static Result instance;
+
         private int playerOneNumOfWins;
         private int playerTwoNumOfWins;
+
+        private Result()
+        {  
+        }
+
+        public static Result Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new Result();
+                }
+
+                return instance;
+            }
+        }
 
         public int PlayerOneNumOfWins
         {
             get { return playerOneNumOfWins; }
             private set { playerOneNumOfWins = value; }
         }
+
         public int PlayerTwoNumOfWins
         {
             get { return playerTwoNumOfWins; }
@@ -20,25 +41,27 @@ namespace OOPTeamwork.Core
 
         public void PlayerWin(int playerNum)
         {
-            if (playerNum == 1)
+            if (playerNum % 2 == 1)
             {
                 playerOneNumOfWins++;
             }
-            if (playerNum == 2)
+            if (playerNum % 2 == 0)
             {
                 playerTwoNumOfWins++;
             }
         }
 
-        public void PrintResult()
+        public string PrintResult()
         {
-            Console.WriteLine("The result is:");
-            Console.ForegroundColor = System.ConsoleColor.Red;
-            Console.WriteLine("Player 1: {0} wins", PlayerOneNumOfWins);
-            Console.ForegroundColor = System.ConsoleColor.Blue;
-            Console.WriteLine("Player 2: {0} wins", PlayerTwoNumOfWins);
-            Console.ForegroundColor = ConsoleColor.Gray;
+            var result  = new StringBuilder();
+
+            result.AppendLine("The result is:");
+            result.AppendLine($"Red player: {PlayerOneNumOfWins} wins");
+            result.AppendLine($"Blue player: {PlayerTwoNumOfWins} wins");
+
+            return result.ToString();
         }
+
         public void ClearResult()
         {
             this.PlayerOneNumOfWins = 0;

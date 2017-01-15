@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Threading;
 using OOPTeamwork.Core.Contracts;
+using OOPTeamwork.Core.Exceptions;
 using OOPTeamwork.Models.Contracts;
 
 namespace OOPTeamwork.Core
@@ -28,7 +30,7 @@ namespace OOPTeamwork.Core
                 var inputLevel = int.Parse(this.reader.ReadLine());
                 selectedLevel = this.levelFactory.GetLevel(inputLevel);
             }
-            catch (Exception ex)
+            catch (InvalidLevelSelectException ex)
             {
                 this.writer.WriteLine(ex.Message);
                 this.StartGame();
@@ -53,6 +55,12 @@ namespace OOPTeamwork.Core
                 {
                     GameField.Instance.ClearGameField();
                     this.StartGame();
+                }
+                else if (playMore.ToLower() == "n")
+                {
+                    this.writer.WriteLine(Result.Instance.PrintResult());
+                    Thread.Sleep(2000);
+                    Environment.Exit(0);
                 }
             }
             
