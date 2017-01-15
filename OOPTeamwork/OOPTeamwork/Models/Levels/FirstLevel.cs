@@ -35,7 +35,7 @@ namespace OOPTeamwork.Models.Levels
                 this.PrintGameField(this.GameField.PrintGameField());
 
                 this.flag = GameLogic.CheckForWinner();
-                this.CheckWhoIsTheWinner(this.flag);
+                this.CheckWhoIsTheWinner(this.flag, this.player);
 
                 if (this.flag == 1 || this.flag == -1)
                 {
@@ -49,30 +49,11 @@ namespace OOPTeamwork.Models.Levels
 
                 GameLogic.CheckForWinner();
                 this.flag = GameLogic.CheckForWinner();
-                this.CheckWhoIsTheWinner(this.flag);
+                this.CheckWhoIsTheWinner(this.flag, this.player);
             }
 
             Result.Instance.PlayerWin(this.player);
             this.Writer.WriteLine(Result.Instance.PrintResult());
-        }
-
-        public void CheckWhoIsTheWinner(int flag)
-        {
-            if (flag == 1)
-            {
-                var winningPlayer = this.player % 2;
-
-                if (winningPlayer == 0)
-                {
-                    winningPlayer = Constants.SecondPlayerIndex;
-                }
-               
-                Console.WriteLine($"Player { winningPlayer } wins!");
-            }
-            else if (this.flag == -1)
-            {
-                Console.WriteLine("Draw");
-            }
-        }       
+        } 
     }
 }

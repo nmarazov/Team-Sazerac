@@ -2,7 +2,7 @@
 {
     // this class could be moved to a more appropriate location???
     // more constants could be added
-    public class Constants
+    public static class Constants
     {
         public const char FirstPlayerSymbol = 'X';
         public const char SecondPlayerSymbol = 'O';
