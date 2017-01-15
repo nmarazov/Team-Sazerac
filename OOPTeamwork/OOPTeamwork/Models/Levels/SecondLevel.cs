@@ -54,6 +54,6 @@ namespace OOPTeamwork.Models.Levels
 
             Result.Instance.PlayerWin(this.player);
             this.Writer.WriteLine(Result.Instance.PrintResult());
-        } 
+        }
     }
 }
