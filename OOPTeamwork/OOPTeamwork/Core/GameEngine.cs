@@ -49,14 +49,15 @@ namespace OOPTeamwork.Core
             }
             finally
             {
-                 Result.PrintResult();
+                 Result.Instance.PrintResult();
                 this.writer.WriteLine("Do you want to clear the results? Y/N");
                 var clear = this.reader.ReadLine();
                 if(clear.ToLower() == "y")
                 {
-                    Result.ClearResult();
+                    Result.Instance.ClearResult();
                     this.writer.WriteLine("Result is cleared!");
                 }
+
                 this.writer.WriteLine("Do you want to play more? Y/N");
                 var playMore = this.reader.ReadLine();
                 if (playMore.ToLower() == "y")
@@ -71,7 +72,6 @@ namespace OOPTeamwork.Core
                     Environment.Exit(0);
                 }
             }
-            
         }
     }
 }
