@@ -13,7 +13,8 @@ namespace OOPTeamwork.Models.Players
     {
         private readonly ICollection<int> computerMoves;
 
-        private int pos;
+        private int position;
+        
         char X = Constants.FirstPlayerSymbol;
         char[] board = GameField.Instance.InputSelection;
 
@@ -27,12 +28,12 @@ namespace OOPTeamwork.Models.Players
         {
             get
             {
-                return this.pos;
+                return this.position;
             }
 
             private set
             {
-                this.pos = value;
+                this.position = value;
             }
         }
         
@@ -52,459 +53,459 @@ namespace OOPTeamwork.Models.Players
  
             if (this.computerMoves.Count == 0)
             {
-                pos = Constants.InitialPositionEnemy;
+                position = Constants.InitialPositionEnemy;
 
-                if (GameLogic.IsPosTaken(pos + 1) == false)
+                if (GameLogic.IsPosTakenForEnemy(position + 1) == false)
                 {
-                    board[pos] = X;
+                    board[position] = X;
                 }
                 else
                 {
-                    board[pos + 1] = X;
+                    board[position + 1] = X;
                 }
 
-                this.computerMoves.Add(pos);
+                this.computerMoves.Add(position);
             }
             else if (this.computerMoves.Count() > 0)
             {
-                pos = this.computerMoves.Last();
+                position = this.computerMoves.Last(); ;
 
-                if (this.computerMoves.Last() == 0)
+                if (position == 0)
                 {
-                    if (GameLogic.IsPosTaken(pos + 2) == false &&
-                        (GameLogic.IsPosTaken(pos + 3) == false ||
-                         board[pos + 2] == X))
+                    if (GameLogic.IsPosTakenForEnemy(position + 2) == false &&
+                        (GameLogic.IsPosTakenForEnemy(position + 3) == false ||
+                         board[position + 2] == X))
                     {
-                        board[pos + 1] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 1);
+                        board[position + 1] = X;
+                        this.computerMoves.Add(position + 1);
                     }
-                    else if (GameLogic.IsPosTaken(pos + 5) == false &&
-                             (GameLogic.IsPosTaken(pos + 9) == false ||
-                              board[pos + 8] == X))
+                    else if (GameLogic.IsPosTakenForEnemy(position + 5) == false &&
+                             (GameLogic.IsPosTakenForEnemy(position + 9) == false ||
+                              board[position + 8] == X))
                     {
-                        board[pos + 4] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 4);
+                        board[position + 4] = X;
+                        this.computerMoves.Add(position + 4);
                     }
-                    else if (GameLogic.IsPosTaken(pos + 4) == false &&
-                             (GameLogic.IsPosTaken(pos + 7) == false ||
-                              board[pos + 6] == X))
+                    else if (GameLogic.IsPosTakenForEnemy(position + 4) == false &&
+                             (GameLogic.IsPosTakenForEnemy(position + 7) == false ||
+                              board[position + 6] == X))
                     {
-                        board[pos + 3] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 3);
+                        board[position + 3] = X;
+                        this.computerMoves.Add(position + 3);
                     }
-                    else if (GameLogic.IsPosTaken(pos + 3) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position + 3) == false)
                     {
-                        board[pos + 2] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 2);
+                        board[position + 2] = X;
+                        this.computerMoves.Add(position + 2);
                     }
-                    else if (GameLogic.IsPosTaken(pos + 7) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position + 7) == false)
                     {
-                        board[pos + 6] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 6);
+                        board[position + 6] = X;
+                        this.computerMoves.Add(position + 6);
                     }
-                    else if (GameLogic.IsPosTaken(pos + 9) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position + 9) == false)
                     {
-                        board[pos + 8] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 8);
+                        board[position + 8] = X;
+                        this.computerMoves.Add(position + 8);
                     }
-                    else if (GameLogic.IsPosTaken(pos + 6) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position + 6) == false)
                     {
-                        board[pos + 5] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 5);
+                        board[position + 5] = X;
+                        this.computerMoves.Add(position + 5);
                     }
-                    else if (GameLogic.IsPosTaken(8) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(8) == false)
                     {
                         board[7] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 7);
+                        this.computerMoves.Add(position + 7);
                     }
                 }
-                else if (this.computerMoves.Last() == 1)
+                else if (position == 1)
                 {
-                    if (GameLogic.IsPosTaken(pos + 2) == false &&
-                        (GameLogic.IsPosTaken(pos) == false ||
-                         board[pos - 1] == X))
+                    if (GameLogic.IsPosTakenForEnemy(position + 2) == false &&
+                        (GameLogic.IsPosTakenForEnemy(position) == false ||
+                         board[position - 1] == X))
                     {
-                        board[pos + 1] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 1);
+                        board[position + 1] = X;
+                        this.computerMoves.Add(position + 1);
                     }
-                    else if (GameLogic.IsPosTaken(pos + 4) == false &&
-                             (GameLogic.IsPosTaken(pos + 7) == false ||
-                              board[pos + 6] == X))
+                    else if (GameLogic.IsPosTakenForEnemy(position + 4) == false &&
+                             (GameLogic.IsPosTakenForEnemy(position + 7) == false ||
+                              board[position + 6] == X))
                     {
-                        board[pos + 3] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 3);
+                        board[position + 3] = X;
+                        this.computerMoves.Add(position + 3);
                     }
-                    else if (GameLogic.IsPosTaken(7) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(7) == false)
                     {
                         board[6] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 6);
+                        this.computerMoves.Add(position + 6);
                     }
-                    else if (GameLogic.IsPosTaken(pos) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position) == false)
                     {
-                        board[pos - 1] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() - 1);
+                        board[position - 1] = X;
+                        this.computerMoves.Add(position - 1);
                     }
-                    else if (GameLogic.IsPosTaken(pos + 3) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position + 3) == false)
                     {
-                        board[pos + 2] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 2);
+                        board[position + 2] = X;
+                        this.computerMoves.Add(position + 2);
                     }
-                    else if (GameLogic.IsPosTaken(pos + 5) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position + 5) == false)
                     {
-                        board[pos + 4] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 4);
+                        board[position + 4] = X;
+                        this.computerMoves.Add(position + 4);
                     }
-                    else if (GameLogic.IsPosTaken(pos + 7) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position + 7) == false)
                     {
-                        board[pos + 6] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 6);
+                        board[position + 6] = X;
+                        this.computerMoves.Add(position + 6);
                     }
-                    else if (GameLogic.IsPosTaken(pos + 6) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position + 6) == false)
                     {
-                        board[pos + 5] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 5);
+                        board[position + 5] = X;
+                        this.computerMoves.Add(position + 5);
                     }
-                    else if (GameLogic.IsPosTaken(pos + 8) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position + 8) == false)
                     {
-                        board[pos + 7] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 7);
-                    }
-                }
-                else if (this.computerMoves.Last() == 2)
-                {
-                    if (GameLogic.IsPosTaken(pos + 4) == false &&
-                        (GameLogic.IsPosTaken(pos + 7) == false ||
-                         board[pos + 6] == X))
-                    {
-                        board[pos + 3] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 3);
-                    }
-                    else if (GameLogic.IsPosTaken(pos + 3) == false &&
-                             (GameLogic.IsPosTaken(pos + 5) == false ||
-                              board[pos + 4] == X))
-                    {
-                        board[pos + 2] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 2);
-                    }
-                    else if (GameLogic.IsPosTaken(pos) == false &&
-                             (GameLogic.IsPosTaken(pos - 1) == false ||
-                              board[pos - 2] == X))
-                    {
-                        board[pos - 1] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() - 1);
-                    }
-                    else if (GameLogic.IsPosTaken(pos + 5) == false)
-                    {
-                        board[pos + 4] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 4);
-                    }
-                    else if (GameLogic.IsPosTaken(pos + 7) == false)
-                    {
-                        board[pos + 6] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 6);
-                    }
-                    else if (GameLogic.IsPosTaken(pos - 3) == false)
-                    {
-                        board[pos - 1] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() - 2);
-                    }
-                    else if (GameLogic.IsPosTaken(pos + 2) == false)
-                    {
-                        board[pos + 1] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 1);
-                    }
-                    else if (GameLogic.IsPosTaken(pos + 6) == false)
-                    {
-                        board[pos + 5] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 5);
+                        board[position + 7] = X;
+                        this.computerMoves.Add(position + 7);
                     }
                 }
-                else if (this.computerMoves.Last() == 3)
+                else if (position == 2)
                 {
-                    if (GameLogic.IsPosTaken(pos + 2) == false &&
-                        (GameLogic.IsPosTaken(pos + 3) == false ||
-                         board[pos + 2] == X))
+                    if (GameLogic.IsPosTakenForEnemy(position + 4) == false &&
+                        (GameLogic.IsPosTakenForEnemy(position + 7) == false ||
+                         board[position + 6] == X))
                     {
-                        board[pos + 1] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 1);
+                        board[position + 3] = X;
+                        this.computerMoves.Add(position + 3);
                     }
-                    else if (GameLogic.IsPosTaken(pos + 4) == false &&
-                             (GameLogic.IsPosTaken(pos - 2) == false ||
-                              board[pos - 3] == X))
+                    else if (GameLogic.IsPosTakenForEnemy(position + 3) == false &&
+                             (GameLogic.IsPosTakenForEnemy(position + 5) == false ||
+                              board[position + 4] == X))
                     {
-                        board[pos + 3] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 3);
+                        board[position + 2] = X;
+                        this.computerMoves.Add(position + 2);
                     }
-                    else if (GameLogic.IsPosTaken(pos + 3) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position) == false &&
+                             (GameLogic.IsPosTakenForEnemy(position - 1) == false ||
+                              board[position - 2] == X))
                     {
-                        board[pos + 2] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 2);
+                        board[position - 1] = X;
+                        this.computerMoves.Add(position - 1);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 2) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position + 5) == false)
                     {
-                        board[pos - 3] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() - 3);
+                        board[position + 4] = X;
+                        this.computerMoves.Add(position + 4);
                     }
-                    else if (GameLogic.IsPosTaken(pos + 5) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position + 7) == false)
                     {
-                        board[pos + 4] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 4);
+                        board[position + 6] = X;
+                        this.computerMoves.Add(position + 6);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 1) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position) == false)
                     {
-                        board[pos - 2] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() - 2);
+                        board[position - 1] = X;
+                        this.computerMoves.Add(position - 2);
                     }
-                    else if (GameLogic.IsPosTaken(pos) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position + 2) == false)
                     {
-                        board[pos - 1] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() - 1);
+                        board[position + 1] = X;
+                        this.computerMoves.Add(position + 1);
                     }
-                    else if (GameLogic.IsPosTaken(pos + 6) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position + 6) == false)
                     {
-                        board[pos + 5] = X;
-                        this.computerMoves.Add(this.computerMoves.Last() + 5);
+                        board[position + 5] = X;
+                        this.computerMoves.Add(position + 5);
                     }
                 }
-                else if (this.computerMoves.Last() == 4)
+                else if (position == 3)
                 {
-                    if (GameLogic.IsPosTaken(pos + 2) == false &&
-                        (GameLogic.IsPosTaken(pos) == false || //!!!!
-                         board[pos - 1] == Constants.FirstPlayerSymbol))
+                    if (GameLogic.IsPosTakenForEnemy(position + 2) == false &&
+                        (GameLogic.IsPosTakenForEnemy(position + 3) == false ||
+                         board[position + 2] == X))
                     {
-                        board[pos + 1] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() + 1);
+                        board[position + 1] = X;
+                        this.computerMoves.Add(position + 1);
                     }
-                    else if (GameLogic.IsPosTaken(pos + 4) == false &&
-                             (GameLogic.IsPosTaken(pos - 2) == false ||
-                              board[pos - 3] == Constants.FirstPlayerSymbol))
+                    else if (GameLogic.IsPosTakenForEnemy(position + 4) == false &&
+                             (GameLogic.IsPosTakenForEnemy(position - 2) == false ||
+                              board[position - 3] == X))
                     {
-                        board[pos + 3] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() + 3);
+                        board[position + 3] = X;
+                        this.computerMoves.Add(position + 3);
                     }
-                    else if (GameLogic.IsPosTaken(pos + 5) == false &&
-                             (GameLogic.IsPosTaken(pos - 3) == false ||
-                              board[pos - 4] == Constants.FirstPlayerSymbol))
+                    else if (GameLogic.IsPosTakenForEnemy(position + 3) == false)
                     {
-                        board[pos + 4] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() + 4);
+                        board[position + 2] = X;
+                        this.computerMoves.Add(position + 2);
                     }
-                    else if (GameLogic.IsPosTaken(pos) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position - 2) == false)
                     {
-                        board[pos - 1] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 1);
+                        board[position - 3] = X;
+                        this.computerMoves.Add(position - 3);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 2) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position + 5) == false)
                     {
-                        board[pos - 3] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 3);
+                        board[position + 4] = X;
+                        this.computerMoves.Add(position + 4);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 3) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position - 1) == false)
                     {
-                        board[pos - 4] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 4);
+                        board[position - 2] = X;
+                        this.computerMoves.Add(position - 2);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 1) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position) == false)
                     {
-                        board[pos - 2] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 2);
+                        board[position - 1] = X;
+                        this.computerMoves.Add(position - 1);
                     }
-                    else if (GameLogic.IsPosTaken(pos + 3) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position + 6) == false)
                     {
-                        board[pos + 2] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() + 2);
+                        board[position + 5] = X;
+                        this.computerMoves.Add(position + 5);
                     }
                 }
-                else if (this.computerMoves.Last() == 5)
+                else if (position == 4)
                 {
-                    if (GameLogic.IsPosTaken(pos) == false &&
-                        (GameLogic.IsPosTaken(pos - 1) == false ||
-                         board[pos - 2] == Constants.FirstPlayerSymbol))
+                    if (GameLogic.IsPosTakenForEnemy(position + 2) == false &&
+                        (GameLogic.IsPosTakenForEnemy(position) == false || //!!!!
+                         board[position - 1] == Constants.FirstPlayerSymbol))
                     {
-                        board[pos - 1] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(pos - 1);
+                        board[position + 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position + 1);
                     }
-                    else if (GameLogic.IsPosTaken(pos + 4) == false &&
-                             (GameLogic.IsPosTaken(pos - 2) == false ||
-                              board[pos - 3] == Constants.FirstPlayerSymbol))
+                    else if (GameLogic.IsPosTakenForEnemy(position + 4) == false &&
+                             (GameLogic.IsPosTakenForEnemy(position - 2) == false ||
+                              board[position - 3] == Constants.FirstPlayerSymbol))
                     {
-                        board[pos + 3] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() + 3);
+                        board[position + 3] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position + 3);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 1) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position + 5) == false &&
+                             (GameLogic.IsPosTakenForEnemy(position - 3) == false ||
+                              board[position - 4] == Constants.FirstPlayerSymbol))
                     {
-                        board[pos - 2] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 2);
+                        board[position + 4] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position + 4);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 2) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position) == false)
                     {
-                        board[pos - 3] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 3);
+                        board[position - 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 1);
                     }
-                    else if (GameLogic.IsPosTaken(pos + 3) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position - 2) == false)
                     {
-                        board[pos + 2] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() + 2);
+                        board[position - 3] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 3);
                     }
-                    else if (GameLogic.IsPosTaken(pos + 2) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position - 3) == false)
                     {
-                        board[pos + 1] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() + 1);
+                        board[position - 4] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 4);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 4) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position - 1) == false)
                     {
-                        board[pos - 5] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 5);
+                        board[position - 2] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 2);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 3) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position + 3) == false)
                     {
-                        board[pos - 4] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 4);
+                        board[position + 2] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position + 2);
                     }
                 }
-                else if (this.computerMoves.Last() == 6)
+                else if (position == 5)
                 {
-                    if (GameLogic.IsPosTaken(pos + 2) == false &&
-                        (GameLogic.IsPosTaken(pos + 3) == false ||
-                         board[pos + 2] == Constants.FirstPlayerSymbol))
+                    if (GameLogic.IsPosTakenForEnemy(position) == false &&
+                        (GameLogic.IsPosTakenForEnemy(position - 1) == false ||
+                         board[position - 2] == Constants.FirstPlayerSymbol))
                     {
-                        board[pos + 1] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() + 1);
+                        board[position - 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 1);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 1) == false &&
-                             (GameLogic.IsPosTaken(pos - 3) == false ||
-                              board[pos - 4] == Constants.FirstPlayerSymbol))
+                    else if (GameLogic.IsPosTakenForEnemy(position + 4) == false &&
+                             (GameLogic.IsPosTakenForEnemy(position - 2) == false ||
+                              board[position - 3] == Constants.FirstPlayerSymbol))
                     {
-                        board[pos - 2] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 2);
+                        board[position + 3] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position + 3);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 5) == false &&
-                             (GameLogic.IsPosTaken(pos - 2) == false ||
-                              board[pos - 3] == Constants.FirstPlayerSymbol))
+                    else if (GameLogic.IsPosTakenForEnemy(position - 1) == false)
                     {
-                        board[pos - 6] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 6);
+                        board[position - 2] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 2);
                     }
-                    else if (GameLogic.IsPosTaken(pos + 4) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position - 2) == false)
                     {
-                        board[pos + 3] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() + 3);
+                        board[position - 3] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 3);
                     }
-                    else if (GameLogic.IsPosTaken(pos + 3) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position + 3) == false)
                     {
-                        board[pos + 2] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() + 2);
+                        board[position + 2] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position + 2);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 3) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position + 2) == false)
                     {
-                        board[pos - 4] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 4);
+                        board[position + 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position + 1);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 4) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position - 4) == false)
                     {
-                        board[pos - 5] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 5);
+                        board[position - 5] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 5);
                     }
-                    else if (GameLogic.IsPosTaken(pos) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position - 3) == false)
                     {
-                        board[pos - 1] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 1);
+                        board[position - 4] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 4);
                     }
                 }
-                else if (this.computerMoves.Last() == 7)
+                else if (position == 6)
                 {
-                    if (GameLogic.IsPosTaken(pos + 2) == false &&
-                        (GameLogic.IsPosTaken(pos) == false ||
-                         board[pos - 1] == Constants.FirstPlayerSymbol))
+                    if (GameLogic.IsPosTakenForEnemy(position + 2) == false &&
+                        (GameLogic.IsPosTakenForEnemy(position + 3) == false ||
+                         board[position + 2] == Constants.FirstPlayerSymbol))
                     {
-                        board[pos + 1] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() + 1);
+                        board[position + 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position + 1);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 2) == false &&
-                             (GameLogic.IsPosTaken(pos - 5) == false ||
-                              board[pos - 6] == Constants.FirstPlayerSymbol))
+                    else if (GameLogic.IsPosTakenForEnemy(position - 1) == false &&
+                             (GameLogic.IsPosTakenForEnemy(position - 3) == false ||
+                              board[position - 4] == Constants.FirstPlayerSymbol))
                     {
-                        board[pos - 3] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 3);
+                        board[position - 2] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 2);
                     }
-                    else if (GameLogic.IsPosTaken(pos) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position - 5) == false &&
+                             (GameLogic.IsPosTakenForEnemy(position - 2) == false ||
+                              board[position - 3] == Constants.FirstPlayerSymbol))
                     {
-                        board[pos - 1] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 1);
+                        board[position - 6] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 6);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 5) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position + 4) == false)
                     {
-                        board[pos - 6] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 6);
+                        board[position + 3] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position + 3);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 4) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position + 3) == false)
                     {
-                        board[pos - 5] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 5);
+                        board[position + 2] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position + 2);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 3) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position - 3) == false)
                     {
-                        board[pos - 4] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 4);
+                        board[position - 4] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 4);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 6) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position - 4) == false)
                     {
-                        board[pos - 7] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 7);
+                        board[position - 5] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 5);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 1) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position) == false)
                     {
-                        board[pos - 2] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 2);
+                        board[position - 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 1);
                     }
                 }
-                else if (this.computerMoves.Last() == 8)
+                else if (position == 7)
                 {
-                    if (GameLogic.IsPosTaken(pos) == false &&
-                        (GameLogic.IsPosTaken(pos - 1) == false ||
-                         board[pos - 2] == Constants.FirstPlayerSymbol))
+                    if (GameLogic.IsPosTakenForEnemy(position + 2) == false &&
+                        (GameLogic.IsPosTakenForEnemy(position) == false ||
+                         board[position - 1] == Constants.FirstPlayerSymbol))
                     {
-                        board[pos - 1] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 1);
+                        board[position + 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position + 1);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 3) == false &&
-                             (GameLogic.IsPosTaken(pos - 7) == false ||
-                              board[pos - 8] == Constants.FirstPlayerSymbol))
+                    else if (GameLogic.IsPosTakenForEnemy(position - 2) == false &&
+                             (GameLogic.IsPosTakenForEnemy(position - 5) == false ||
+                              board[position - 6] == Constants.FirstPlayerSymbol))
                     {
-                        board[pos - 4] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 4);
+                        board[position - 3] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 3);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 2) == false &&
-                             (GameLogic.IsPosTaken(pos - 5) == false ||
-                              board[pos - 6] == Constants.FirstPlayerSymbol))
+                    else if (GameLogic.IsPosTakenForEnemy(position) == false)
                     {
-                        board[pos - 3] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 3);
+                        board[position - 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 1);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 1) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position - 5) == false)
                     {
-                        board[pos - 2] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 2);
+                        board[position - 6] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 6);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 5) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position - 4) == false)
                     {
-                        board[pos - 6] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 6);
+                        board[position - 5] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 5);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 2) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position - 3) == false)
                     {
-                        board[pos - 3] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 3);
+                        board[position - 4] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 4);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 4) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position - 6) == false)
                     {
-                        board[pos - 5] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 5);
+                        board[position - 7] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 7);
                     }
-                    else if (GameLogic.IsPosTaken(pos - 6) == false)
+                    else if (GameLogic.IsPosTakenForEnemy(position - 1) == false)
                     {
-                        board[pos - 7] = Constants.FirstPlayerSymbol;
-                        this.computerMoves.Add(this.computerMoves.Last() - 7);
+                        board[position - 2] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 2);
+                    }
+                }
+                else if (position == 8)
+                {
+                    if (GameLogic.IsPosTakenForEnemy(position) == false &&
+                        (GameLogic.IsPosTakenForEnemy(position - 1) == false ||
+                         board[position - 2] == Constants.FirstPlayerSymbol))
+                    {
+                        board[position - 1] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 1);
+                    }
+                    else if (GameLogic.IsPosTakenForEnemy(position - 3) == false &&
+                             (GameLogic.IsPosTakenForEnemy(position - 7) == false ||
+                              board[position - 8] == Constants.FirstPlayerSymbol))
+                    {
+                        board[position - 4] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 4);
+                    }
+                    else if (GameLogic.IsPosTakenForEnemy(position - 2) == false &&
+                             (GameLogic.IsPosTakenForEnemy(position - 5) == false ||
+                              board[position - 6] == Constants.FirstPlayerSymbol))
+                    {
+                        board[position - 3] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 3);
+                    }
+                    else if (GameLogic.IsPosTakenForEnemy(position - 1) == false)
+                    {
+                        board[position - 2] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 2);
+                    }
+                    else if (GameLogic.IsPosTakenForEnemy(position - 5) == false)
+                    {
+                        board[position - 6] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 6);
+                    }
+                    else if (GameLogic.IsPosTakenForEnemy(position - 2) == false)
+                    {
+                        board[position - 3] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 3);
+                    }
+                    else if (GameLogic.IsPosTakenForEnemy(position - 4) == false)
+                    {
+                        board[position - 5] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 5);
+                    }
+                    else if (GameLogic.IsPosTakenForEnemy(position - 6) == false)
+                    {
+                        board[position - 7] = Constants.FirstPlayerSymbol;
+                        this.computerMoves.Add(position - 7);
                     }
                 }
             }

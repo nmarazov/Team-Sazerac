@@ -1,16 +1,18 @@
 ﻿using System;
 
 using OOPTeamwork.Common;
+using OOPTeamwork.Models.GameAbstracts;
+using OOPTeamwork.Models.Players;
 
 namespace OOPTeamwork.Core
 {
     public class GameLogic
     {       
         public static bool IsPosTaken(int position)
-        {
+        {            
             if (GameField.Instance.InputSelection[position - 1] == Constants.FirstPlayerSymbol
                 || GameField.Instance.InputSelection[position - 1] == Constants.SecondPlayerSymbol)
-            {
+            {               
                 Console.WriteLine("This position is already taken!");
                 return true;
             }
@@ -19,7 +21,20 @@ namespace OOPTeamwork.Core
                 return false;
             }             
         }
-        
+
+        public static bool IsPosTakenForEnemy(int position)
+        {
+            if (GameField.Instance.InputSelection[position - 1] == Constants.FirstPlayerSymbol
+                || GameField.Instance.InputSelection[position - 1] == Constants.SecondPlayerSymbol)
+            {              
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public static bool ChekIfThePositionExist(int position)
         {
             if (position >= 1 && position <= 9)
