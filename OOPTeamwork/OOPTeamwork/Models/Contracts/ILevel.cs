@@ -4,6 +4,8 @@
     {
         void PrintGameField(string gameField);
 
+        void CheckWhoIsTheWinner(int flag, int player);
+
         void StartLevel();
     }
 }

@@ -6,7 +6,7 @@ using OOPTeamwork.Models.Players;
 
 namespace OOPTeamwork.Core
 {
-    public class GameLogic
+    public static class GameLogic
     {       
         public static bool IsPosTaken(int position)
         {            

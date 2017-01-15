@@ -51,8 +51,11 @@ namespace OOPTeamwork.Models.Levels
                 this.flag = GameLogic.CheckForWinner();
                 this.CheckWhoIsTheWinner(this.flag, this.player);
             }
+            if (this.flag != -1)
+            {
+                Result.Instance.PlayerWin(this.player);
+            }
 
-            Result.Instance.PlayerWin(this.player);
             this.Writer.WriteLine(Result.Instance.PrintResult());
         }
     }

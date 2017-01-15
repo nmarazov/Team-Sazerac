@@ -30,7 +30,7 @@ namespace OOPTeamwork.Core
                 var inputLevel = int.Parse(this.reader.ReadLine());
                 selectedLevel = this.levelFactory.GetLevel(inputLevel);
             }
-            catch (InvalidLevelSelectException ex)
+            catch (Exception ex)
             {
                 this.writer.WriteLine(ex.Message);
                 this.StartGame();

@@ -52,7 +52,11 @@ namespace OOPTeamwork.Models.Levels
                 this.CheckWhoIsTheWinner(this.flag, this.player);
             }
 
-            Result.Instance.PlayerWin(this.player);
+            if (this.flag != -1)
+            {
+                Result.Instance.PlayerWin(this.player);
+            }
+
             this.Writer.WriteLine(Result.Instance.PrintResult());
         }
     }
