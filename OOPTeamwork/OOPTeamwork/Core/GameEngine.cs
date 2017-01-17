@@ -11,14 +11,14 @@ namespace OOPTeamwork.Core
         private readonly ILevelFactory levelFactory;
         private readonly IReader reader;
         private readonly IWriter writer;
-        private readonly IGameBorder gameBoard;
+        
 
-        public GameEngine(ILevelFactory levelFactory, IReader reader, IWriter writer, IGameBorder gameBoard)
+        public GameEngine(ILevelFactory levelFactory, IReader reader, IWriter writer)
         {
             this.levelFactory = levelFactory;
             this.reader = reader;
             this.writer = writer;
-            this.gameBoard = gameBoard;
+            
         }
 
         public void StartGame()

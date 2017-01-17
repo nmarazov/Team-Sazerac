@@ -11,11 +11,9 @@ namespace OOPTeamwork
             var reader = new ConsoleReaderProvider();
             var writer = new ConsoleWriterProvider();
             var levelFactory = new LevelFactory();
-            var gameBoard = new GameBoardProvider();
-            gameBoard.Caption = "TicTacTop";
-            gameBoard.Form.ShowDialog();
+            
 
-            var engine = new GameEngine(levelFactory, reader, writer, gameBoard);
+            var engine = new GameEngine(levelFactory, reader, writer);
 
             engine.StartGame();                      
         }
