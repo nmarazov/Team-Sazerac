@@ -11,12 +11,14 @@ namespace OOPTeamwork.Core
         private readonly ILevelFactory levelFactory;
         private readonly IReader reader;
         private readonly IWriter writer;
+        private readonly IGameBorder gameBoard;
 
-        public GameEngine(ILevelFactory levelFactory, IReader reader, IWriter writer)
+        public GameEngine(ILevelFactory levelFactory, IReader reader, IWriter writer, IGameBorder gameBoard)
         {
             this.levelFactory = levelFactory;
             this.reader = reader;
             this.writer = writer;
+            this.gameBoard = gameBoard;
         }
 
         public void StartGame()
@@ -29,6 +31,8 @@ namespace OOPTeamwork.Core
             {
                 var inputLevel = int.Parse(this.reader.ReadLine());
                 selectedLevel = this.levelFactory.GetLevel(inputLevel);
+                //this.gameBoard.Form.ShowDialog();
+
             }
             catch (Exception ex)
             {

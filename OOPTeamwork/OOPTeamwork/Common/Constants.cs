@@ -10,5 +10,8 @@
         public const int FirstPlayerIndex = 1;
         public const int SecondPlayerIndex = 2;
         public const int InitialPositionEnemy = 0;
+
+        // messages
+        public const string NullCaption = "Caption Can't be Null!";
     }
 }

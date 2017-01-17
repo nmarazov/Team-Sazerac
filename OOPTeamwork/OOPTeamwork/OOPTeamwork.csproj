@@ -35,6 +35,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Contracts\IGameBorder.cs" />
     <Compile Include="Core\Contracts\IGameField.cs" />
     <Compile Include="Core\Contracts\IReader.cs" />
     <Compile Include="Core\Contracts\IWriter.cs" />
@@ -54,6 +57,12 @@
     <Compile Include="Models\Contracts\ILevel.cs" />
     <Compile Include="Core\GameEngine.cs" />
     <Compile Include="Core\Contracts\ILevelFactory.cs" />
+    <Compile Include="Common\images.cs" />
+    <Compile Include="Core\GameBoardFolder\Contracts\IDentificable.cs" />
+    <Compile Include="Core\Providers\GameBoardProvider.cs" />
+    <Compile Include="Core\GameBoardFolder\PanelSezarec.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Models\Levels\FirstLevel.cs" />
     <Compile Include="Core\GameLogic.cs" />
     <Compile Include="Common\Enums\LevelType.cs" />
@@ -73,6 +82,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Core\GameBoardFolder\PanelSezarec.resx">
+      <DependentUpon>PanelSezarec.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

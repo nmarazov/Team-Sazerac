@@ -11,3 +11,11 @@ C:\Users\Anna\Documents\Telerik\New folder\Telerik\C# OOP\Teamwork\Team-Sazerac\
 C:\Users\Anna\Documents\Telerik\New folder\Telerik\C# OOP\Teamwork\Team-Sazerac\OOPTeamwork\OOPTeamwork\bin\Debug\OOPTeamwork.exe
 C:\Users\Anna\Documents\Telerik\New folder\Telerik\C# OOP\Teamwork\Team-Sazerac\OOPTeamwork\OOPTeamwork\bin\Debug\OOPTeamwork.pdb
 C:\Users\Anna\Documents\Telerik\New folder\Telerik\C# OOP\Teamwork\Team-Sazerac\OOPTeamwork\OOPTeamwork\obj\Debug\OOPTeamwork.csprojResolveAssemblyReference.cache
+C:\Users\DPopov\Documents\C#-OOP-DEC2016\TeamWork\OOPTeamwork\OOPTeamwork\bin\Debug\OOPTeamwork.exe.config
+C:\Users\DPopov\Documents\C#-OOP-DEC2016\TeamWork\OOPTeamwork\OOPTeamwork\bin\Debug\OOPTeamwork.exe
+C:\Users\DPopov\Documents\C#-OOP-DEC2016\TeamWork\OOPTeamwork\OOPTeamwork\bin\Debug\OOPTeamwork.pdb
+C:\Users\DPopov\Documents\C#-OOP-DEC2016\TeamWork\OOPTeamwork\OOPTeamwork\obj\Debug\OOPTeamwork.csprojResolveAssemblyReference.cache
+C:\Users\DPopov\Documents\C#-OOP-DEC2016\TeamWork\OOPTeamwork\OOPTeamwork\obj\Debug\OOPTeamwork.exe
+C:\Users\DPopov\Documents\C#-OOP-DEC2016\TeamWork\OOPTeamwork\OOPTeamwork\obj\Debug\OOPTeamwork.pdb
+C:\Users\DPopov\Documents\C#-OOP-DEC2016\TeamWork\OOPTeamwork\OOPTeamwork\obj\Debug\OOPTeamwork.csproj.GenerateResource.Cache
+C:\Users\DPopov\Documents\C#-OOP-DEC2016\TeamWork\OOPTeamwork\OOPTeamwork\obj\Debug\OOPTeamwork.Core.GameBoardFolder.PanelSazerac.resources
