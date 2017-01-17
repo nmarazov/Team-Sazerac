@@ -1,5 +1,4 @@
 ﻿using OOPTeamwork.Models.Contracts;
-using OOPTeamwork.Models.Enums;
 
 namespace OOPTeamwork.Core.Contracts
 {

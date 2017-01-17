@@ -1,17 +1,20 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using OOPTeamwork.Core.Contracts;
 
 namespace OOPTeamwork.Core
 {
     public class GameField : IGameField
     {
+        private static readonly char[] InitialField = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+
         private static GameField instance;
 
         private char[] inputSelection;
 
         private GameField()
         {
-            this.inputSelection = new[] { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+            this.inputSelection = new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
         }
 
         public static GameField Instance
@@ -39,7 +42,13 @@ namespace OOPTeamwork.Core
                 this.inputSelection = value;
             }
         }
-        
+
+        public void ClearGameField()
+        {
+            Array.Copy(InitialField, InputSelection, 9);
+
+        }
+
         public string PrintGameField()
         {
             var result = new StringBuilder();
@@ -54,7 +63,6 @@ namespace OOPTeamwork.Core
             result.AppendLine($"  {InputSelection[0]}  |  {InputSelection[1]}  |  {InputSelection[2]}");
             result.AppendLine("     |     |      ");
             result.AppendLine();
-
             return result.ToString();
         }
     }

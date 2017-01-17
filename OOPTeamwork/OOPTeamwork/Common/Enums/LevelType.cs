@@ -2,7 +2,7 @@
 {
     public enum LevelType
     {
-        Оne = 1,
-        Тwo
+        SinglePlayer = 1,
+        MultiPlayer = 2
     }
 }

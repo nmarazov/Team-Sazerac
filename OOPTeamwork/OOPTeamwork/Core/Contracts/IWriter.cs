@@ -6,9 +6,13 @@ namespace OOPTeamwork.Core.Contracts
     {
         void Write(string message);
 
-        void WriteLine(string message = null);
+        void Write(char message);
 
+        void WriteLine(string message = null);
+        
         void ChangeColor(ConsoleColor color);
+
+        void ResetColor();
 
         void Clear();
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 
+using OOPTeamwork.Common;
 using OOPTeamwork.Core;
 using OOPTeamwork.Core.Contracts;
 using OOPTeamwork.Models.GameAbstracts;
@@ -9,11 +10,9 @@ namespace OOPTeamwork.Models.Levels
 {
     public class FirstLevel : Level
     {
-        private readonly ManualPlayer firstPlayer = new ManualPlayer(Constants.FirstPlayerIndex, Constants.FirstPlayerSymol);
+        private readonly ManualPlayer firstPlayer = new ManualPlayer(Constants.FirstPlayerIndex, Constants.FirstPlayerSymbol);
 
         private readonly ManualPlayer secondPlayer = new ManualPlayer(Constants.SecondPlayerIndex, Constants.SecondPlayerSymbol);
-
-        private GameLogic startGameLogic = new GameLogic();
        
         private int player = 1;
 
@@ -32,12 +31,11 @@ namespace OOPTeamwork.Models.Levels
             {
                 this.player = 1;
                 this.firstPlayer.PlayerNextMove();
-
-                this.Writer.Clear();
-                this.Writer.WriteLine(this.GameField.PrintGameField());
+                
+                this.PrintGameField(this.GameField.PrintGameField());
 
                 this.flag = GameLogic.CheckForWinner();
-                this.CheckWhoIsTheWinner(this.flag);
+                this.CheckWhoIsTheWinner(this.flag, this.player);
 
                 if (this.flag == 1 || this.flag == -1)
                 {
@@ -47,32 +45,18 @@ namespace OOPTeamwork.Models.Levels
                 this.secondPlayer.PlayerNextMove();
                 this.player++;
 
-                this.Writer.Clear();
-                this.Writer.WriteLine(this.GameField.PrintGameField());
+                this.PrintGameField(this.GameField.PrintGameField());
 
                 GameLogic.CheckForWinner();
                 this.flag = GameLogic.CheckForWinner();
-                this.CheckWhoIsTheWinner(this.flag);
+                this.CheckWhoIsTheWinner(this.flag, this.player);
             }
+            if (this.flag != -1)
+            {
+                Result.Instance.PlayerWin(this.player);
+            }
+
+            this.Writer.WriteLine(Result.Instance.PrintResult());
         }
-
-        public void CheckWhoIsTheWinner(int flag)
-        {
-            if (flag == 1)
-            {
-                var winningPlayer = this.player % 2;
-
-                if (winningPlayer == 0)
-                {
-                    winningPlayer = Constants.SecondPlayerIndex;
-                }
-               
-                Console.WriteLine($"Player { winningPlayer } wins!");
-            }
-            else if (this.flag == -1)
-            {
-                Console.WriteLine("Draw");
-            }
-        }       
     }
 }

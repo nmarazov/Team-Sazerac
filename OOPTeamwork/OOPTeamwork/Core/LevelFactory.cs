@@ -13,14 +13,13 @@ namespace OOPTeamwork.Core
         {
             switch (level)
             {
-                case (int)LevelType.Оne:
+                case (int)LevelType.SinglePlayer:
                     return new FirstLevel(GameField.Instance, new ConsoleWriterProvider(), new ConsoleReaderProvider());
-                case (int)LevelType.Тwo:
+                case (int)LevelType.MultiPlayer:
                     return new SecondLevel(GameField.Instance, new ConsoleWriterProvider(), new ConsoleReaderProvider());
-                default: throw new InvalidLevelSelectException("Incorect level selection");
+                default:
+                    throw new InvalidLevelSelectException("Incorrect level selection");
             }
         }
     }
 }
-    
-

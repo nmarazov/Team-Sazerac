@@ -7,11 +7,11 @@ namespace OOPTeamwork.Models.GameAbstracts
         private int playerIndex;
 
         private char playerSymbol;
-
+       
         public Player(int playerIndex, char playerSymbol)
         {
             this.PlayerIndex = playerIndex;
-            this.PlayerSymbol = playerSymbol;
+            this.PlayerSymbol = playerSymbol;            
         }
 
         public int PlayerIndex
@@ -39,8 +39,7 @@ namespace OOPTeamwork.Models.GameAbstracts
                 this.playerSymbol = value;
             }
         }
-
+       
         public abstract void PlayerNextMove();
-            
     }
 }

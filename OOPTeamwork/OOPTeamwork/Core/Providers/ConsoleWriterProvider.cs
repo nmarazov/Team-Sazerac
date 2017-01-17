@@ -3,9 +3,14 @@ using OOPTeamwork.Core.Contracts;
 
 namespace OOPTeamwork.Core.Providers
 {
-    class ConsoleWriterProvider : IWriter
+    public class ConsoleWriterProvider : IWriter
     {
         public void Write(string message)
+        {
+            Console.Write(message);
+        }
+
+        public void Write(char message)
         {
             Console.Write(message);
         }
@@ -17,7 +22,7 @@ namespace OOPTeamwork.Core.Providers
 
         public void ChangeColor(ConsoleColor color)
         {
-            Console.BackgroundColor = color;
+            Console.ForegroundColor = color;
         }
 
         public void Clear()
